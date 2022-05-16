@@ -5,6 +5,7 @@ import { NavComponent } from './nav/nav.component';
 import { DirectoryComponent } from './directory/directory.component';
 import { MenuItemComponent } from './menu-item/menu-item.component';
 import { RouterModule } from '@angular/router';
+import { ButtonComponent } from './button/button.component';
 
 
 
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
     CartIconComponent,
     NavComponent,
     DirectoryComponent,
-    MenuItemComponent
+    MenuItemComponent,
+    ButtonComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { RouterModule } from '@angular/router';
   exports: [
     CartIconComponent,
     NavComponent,
-    DirectoryComponent
+    DirectoryComponent,
+    ButtonComponent
   ]
 })
 export class ComponentsModule { }
