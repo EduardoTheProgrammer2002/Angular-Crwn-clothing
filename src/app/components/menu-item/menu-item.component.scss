@@ -1,5 +1,5 @@
 .menu-item {
-    width: 395.3px;
+    min-width: 30%;
     height: 360px;
     flex: 1 1 auto;
     display: flex;
@@ -13,8 +13,6 @@
 
     &.large {
         height: 500px;
-        width: 600px;
-        min-width: 30%;
     }
 
     &:first-child {
@@ -23,6 +21,7 @@
 
     &:last-child {
         margin-left: 7.5px;
+        margin-right: none;
     }
 
     &:hover {

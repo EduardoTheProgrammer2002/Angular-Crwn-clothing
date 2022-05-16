@@ -7,8 +7,7 @@ import ISection from 'src/app/interfaces/Isection';
   styleUrls: ['./menu-item.component.scss']
 })
 export class MenuItemComponent implements OnInit {
-  @Input() section: (ISection | null) = null;
-  class:string = `${this.section?.size} menu-item`;
+  @Input() sections: (ISection[] | null) = null;
 
   constructor() { }
 
