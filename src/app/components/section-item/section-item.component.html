@@ -1,0 +1,8 @@
+<div class="product-card-container">
+    <img [src]="item.imageUrl" alt={`${name}`}/>
+    <div class="footer">
+        <span class="name">{{item.name}}</span> 
+        <span class="price">${{item.price}}</span> 
+    </div>
+    <app-button class="btn w-[80%]" buttonType="inverted">Add to cart</app-button>
+</div>

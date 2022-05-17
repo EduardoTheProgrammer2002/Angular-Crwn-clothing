@@ -1,5 +1,9 @@
 <div class="navigation flex mb-25">
-    <a routerLink="/" class="logo-container poiter">
+    <a 
+        routerLink="/" 
+        routerLinkActive=" active border-b-2 border-gray-500" 
+        [routerLinkActiveOptions]="{exact: true}" 
+        class="logo-container poiter">
         <img src="assets/crown.svg" alt="logo">
     </a>
     <div class='nav-links-container flex '>

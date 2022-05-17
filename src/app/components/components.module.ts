@@ -6,6 +6,8 @@ import { DirectoryComponent } from './directory/directory.component';
 import { MenuItemComponent } from './menu-item/menu-item.component';
 import { RouterModule } from '@angular/router';
 import { ButtonComponent } from './button/button.component';
+import { ShopSectionComponent } from './shop-section/shop-section.component';
+import { SectionItemComponent } from './section-item/section-item.component';
 
 
 
@@ -15,7 +17,9 @@ import { ButtonComponent } from './button/button.component';
     NavComponent,
     DirectoryComponent,
     MenuItemComponent,
-    ButtonComponent
+    ButtonComponent,
+    ShopSectionComponent,
+    SectionItemComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +29,8 @@ import { ButtonComponent } from './button/button.component';
     CartIconComponent,
     NavComponent,
     DirectoryComponent,
-    ButtonComponent
+    ButtonComponent,
+    ShopSectionComponent
   ]
 })
 export class ComponentsModule { }
