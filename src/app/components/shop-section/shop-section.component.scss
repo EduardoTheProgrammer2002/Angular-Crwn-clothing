@@ -14,18 +14,12 @@
         cursor: pointer;
         text-align: center;
         
-        
-    }
-    
-    & .hr {
-        width: 50%;
-        border-bottom: 1px solid gray;
     }
 
-    & .hr2 {
+    & .hr {
         margin-top: 2px;
         width: 40%;
-        border-bottom: 3px solid gray;
+        border-bottom: 3px solid rgb(158, 157, 157);
     } 
 
     & .item-container {

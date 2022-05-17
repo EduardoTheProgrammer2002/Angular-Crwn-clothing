@@ -1,6 +1,8 @@
 .active {
   transform: scale(1.01);
   transition: 0.2s;
+  border-bottom: 3px solid #92A9BD;
+  color: #92A9BD;
 }
 
 .navigation {
