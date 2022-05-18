@@ -1,4 +1,4 @@
-<div *ngFor="let section of sections" class="menu-item" [ngClass]="{'large': !!section?.size}">
+<div *ngFor="let section of sections" (click)="redirect($event, section.id)" class="menu-item" [ngClass]="{'large': !!section?.size}">
     <div class='background-image' style="background-image: url({{section?.imageUrl}});"></div>
     <div class="content">
         <h1 class="title">{{section?.title?.toUpperCase()}}</h1>

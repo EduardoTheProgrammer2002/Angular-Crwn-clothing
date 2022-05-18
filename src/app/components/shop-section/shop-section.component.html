@@ -1,10 +1,10 @@
 <div class="flex section-container">
-    <div [routerLink]="section?.title" class="title">
+    <div (click)="redirect($event, section ? section.id: 0)" class="title">
         {{section?.title}}
     </div>
     <div class="hr"></div>
     
     <div class="item-container">
-        <app-section-item *ngFor="let item of section?.items" [item]="item"></app-section-item>
+        <app-section-item *ngFor="let item of items" [item]="item"></app-section-item>
     </div>
 </div>

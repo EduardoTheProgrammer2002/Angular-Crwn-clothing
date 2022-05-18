@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import ISection from 'src/app/interfaces/Isection';
 
 @Component({
@@ -9,9 +10,14 @@ import ISection from 'src/app/interfaces/Isection';
 export class MenuItemComponent implements OnInit {
   @Input() sections: (ISection[] | null) = null;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  redirect(event: Event, id: number) {
+    event.preventDefault();
+    this.router.navigateByUrl(`/section/${id}`);
   }
 
 }
