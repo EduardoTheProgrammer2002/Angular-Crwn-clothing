@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { ButtonComponent } from './button/button.component';
 import { ShopSectionComponent } from './shop-section/shop-section.component';
 import { SectionItemComponent } from './section-item/section-item.component';
+import { SectionDirectoryComponent } from './section-directory/section-directory.component';
 
 
 
@@ -19,7 +20,8 @@ import { SectionItemComponent } from './section-item/section-item.component';
     MenuItemComponent,
     ButtonComponent,
     ShopSectionComponent,
-    SectionItemComponent
+    SectionItemComponent,
+    SectionDirectoryComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import { SectionItemComponent } from './section-item/section-item.component';
     NavComponent,
     DirectoryComponent,
     ButtonComponent,
-    ShopSectionComponent
+    ShopSectionComponent,
+    SectionDirectoryComponent
   ]
 })
 export class ComponentsModule { }

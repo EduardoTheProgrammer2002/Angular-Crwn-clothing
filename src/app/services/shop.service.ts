@@ -75,8 +75,8 @@ export class ShopService {
         },
         {
           id: 2,
-          name: 'Adidas Yeezy',
-          imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
+          name: 'NIKE AIR FORCE 1',
+          imageUrl: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&h=600',
           price: 280
         },
         {
@@ -87,8 +87,8 @@ export class ShopService {
         },
         {
           id: 4,
-          name: 'Nike White AirForce',
-          imageUrl: 'https://i.ibb.co/1RcFPk0/white-nike-high-tops.png',
+          name: 'NIKE DUNK',
+          imageUrl: 'https://images.unsplash.com/photo-1586525198428-225f6f12cff5?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=467&h=587',
           price: 160
         },
         {
