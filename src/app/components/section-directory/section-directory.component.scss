@@ -8,6 +8,11 @@
     position: relative;
     left: 140px;
 
+    & .filter-icon {
+        cursor: pointer;
+        color: #4e6677;
+    }
+
     & .title {
         min-width: 7%;
         width: 10%;
@@ -28,5 +33,51 @@
         flex-wrap: wrap;
         padding: 40px 0px;
     }
-    
+
+    .dropdown {
+        position: absolute;
+        right: 95px;
+        top: 23px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        left: -30px;
+        width: 100px;
+        top: calc(100% + .25rem);
+        background-color: white;
+        padding: .75rem;
+        border-radius: .25rem;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .4);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+
+        .sections:hover {
+            color: black;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .sections {
+            height: 20px;
+            cursor: pointer;
+            margin-bottom: 14px;
+        }
+        
+        :last-child {
+            margin-bottom: 10px;
+        }
+    }
+
+    .show {
+        pointer-events: auto;
+        transform: translate(0);
+        opacity: 1;
+    }
 }

@@ -6,4 +6,16 @@
     <div class="item-container">
         <app-section-item *ngFor="let item of section?.items" [item]="item"></app-section-item>
     </div>
+
+    <div class="dropdown">
+        <fa-icon [icon]="faFilter" class="text-[30px] filter-icon" (click)="showFilters()"></fa-icon>
+        <div class="dropdown-menu" [ngClass]="{'show': show}">
+            <div class="sections" (click)="redirectFilter(1)">Hats</div>
+            <div class="sections" (click)="redirectFilter(2)">Sneakers</div>
+            <div class="sections" (click)="redirectFilter(3)">Jackets</div>
+            <div class="sections" (click)="redirectFilter(4)">Women</div>
+            <div class="sections" (click)="redirectFilter(5)">Men</div>
+        </div>
+    </div>
+
 </div>

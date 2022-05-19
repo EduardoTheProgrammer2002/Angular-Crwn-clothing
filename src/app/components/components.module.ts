@@ -9,6 +9,7 @@ import { ButtonComponent } from './button/button.component';
 import { ShopSectionComponent } from './shop-section/shop-section.component';
 import { SectionItemComponent } from './section-item/section-item.component';
 import { SectionDirectoryComponent } from './section-directory/section-directory.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -25,7 +26,8 @@ import { SectionDirectoryComponent } from './section-directory/section-directory
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FontAwesomeModule
   ],
   exports: [
     CartIconComponent,
