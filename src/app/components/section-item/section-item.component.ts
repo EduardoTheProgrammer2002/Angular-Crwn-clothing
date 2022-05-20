@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import IItems from 'src/app/interfaces/Iitems';
+import { faStarHalf } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-section-item',
@@ -13,6 +15,9 @@ export class SectionItemComponent implements OnInit {
     imageUrl: 'https://i.ibb.co/ZYW3VTp/brown-brim.png',
     price: 25
   };
+
+  starIcon = faStar;
+  startHalf = faStarHalf;
   
   constructor() { }
 
