@@ -1,15 +1,12 @@
 <div class="product-card-container">
-    <img [src]="item.imageUrl" alt={`${name}`}/>
+    <img [src]="item?.imageUrl" alt={`${name}`}/>
     <div class="footer">
-        <span class="name">{{item.name}}</span> 
-        <span class="price">${{item.price}}</span> 
+        <span class="name">{{item?.name}}</span> 
+        <span class="price">${{item?.price}}</span> 
     </div>
     <div class="rating-container">
-        <fa-icon [icon]="starIcon" class="star-icon"></fa-icon>
-        <fa-icon [icon]="starIcon" class="star-icon"></fa-icon>
-        <fa-icon [icon]="starIcon" class="star-icon"></fa-icon>
-        <fa-icon [icon]="starIcon" class="star-icon"></fa-icon>
-        <fa-icon [icon]="startHalf" class="star-icon"></fa-icon>
+        <fa-icon [icon]="starIcon" *ngFor="let i of rating" class="star-icon"></fa-icon>
+        <fa-icon [icon]="startHalf" *ngIf="showHalfStar" class="star-icon"></fa-icon>
     </div>
     <app-button class="btn w-[80%]" buttonType="inverted">Add to cart</app-button>
 </div>

@@ -9,19 +9,26 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./section-item.component.scss']
 })
 export class SectionItemComponent implements OnInit {
-  @Input() item:IItems = {
-    id: 1,
-    name: 'Brown Brim',
-    imageUrl: 'https://i.ibb.co/ZYW3VTp/brown-brim.png',
-    price: 25
-  };
+  @Input() item:(IItems | null) = null
 
+  //the variables to show the icons that represents the rating
+  rating: number[] = [];
+  showHalfStar: boolean = false
+
+  //Rating Icons
   starIcon = faStar;
   startHalf = faStarHalf;
   
   constructor() { }
 
   ngOnInit(): void {
+    this.rating =  Array(Math.trunc(this.item?.rating?? 0));
+    this.showHalfStar = this.isFloat((this.item?.rating ? this.item.rating : 1));
+  }
+
+  //func to check when a number is floating
+  isFloat(n:number): boolean{
+    return Number(n) === n && n % 1 !== 0;
   }
 
 }
