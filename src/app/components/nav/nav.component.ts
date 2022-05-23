@@ -17,8 +17,8 @@ export class NavComponent implements OnInit {
     console.log('click');
   }
 
-  openModal(event: Event) {
+  openModal(event: Event, id: string) {
     event.preventDefault();
-    this.modal.toggleModal();
+    this.modal.toggleModal(id);
   }
 }
