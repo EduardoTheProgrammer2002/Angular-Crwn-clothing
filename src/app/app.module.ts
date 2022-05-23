@@ -8,6 +8,7 @@ import { ComponentsModule } from './components/components.module';
 import { HomeComponent } from './pages/home/home.component';
 import { ShopComponent } from './pages/shop/shop.component';
 import { ItemSectionComponent } from './pages/item-section/item-section.component';
+import { UserModule } from './user/user.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ItemSectionComponent } from './pages/item-section/item-section.componen
     BrowserModule,
     AppRoutingModule,
     ComponentsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

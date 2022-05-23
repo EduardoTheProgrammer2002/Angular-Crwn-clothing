@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthModalComponent } from './auth-modal/auth-modal.component';
+import { ComponentsModule } from '../components/components.module';
 
 
 
@@ -9,7 +10,11 @@ import { AuthModalComponent } from './auth-modal/auth-modal.component';
     AuthModalComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ComponentsModule
+  ],
+  exports: [
+    AuthModalComponent
   ]
 })
 export class UserModule { }

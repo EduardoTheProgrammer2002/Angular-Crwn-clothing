@@ -37,7 +37,8 @@ import { ModalComponent } from './modal/modal.component';
     DirectoryComponent,
     ButtonComponent,
     ShopSectionComponent,
-    SectionDirectoryComponent
+    SectionDirectoryComponent,
+    ModalComponent
   ]
 })
 export class ComponentsModule { }
