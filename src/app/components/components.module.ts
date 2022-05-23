@@ -11,6 +11,8 @@ import { SectionItemComponent } from './section-item/section-item.component';
 import { SectionDirectoryComponent } from './section-directory/section-directory.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ModalComponent } from './modal/modal.component';
+import { TabContainerComponent } from './tab-container/tab-container.component';
+import { TabComponent } from './tab/tab.component';
 
 
 
@@ -24,7 +26,9 @@ import { ModalComponent } from './modal/modal.component';
     ShopSectionComponent,
     SectionItemComponent,
     SectionDirectoryComponent,
-    ModalComponent
+    ModalComponent,
+    TabContainerComponent,
+    TabComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +42,9 @@ import { ModalComponent } from './modal/modal.component';
     ButtonComponent,
     ShopSectionComponent,
     SectionDirectoryComponent,
-    ModalComponent
+    ModalComponent,
+    TabContainerComponent,
+    TabComponent
   ]
 })
 export class ComponentsModule { }
