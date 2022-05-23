@@ -12,11 +12,7 @@ export class ModalComponent implements OnInit {
   constructor(
     public modal: ModalService,
     public el: ElementRef
-  ) {
-    console.log(el);
-    
-    
-   }
+  ) {}
 
   ngOnInit(): void {
     document.body.appendChild(this.el.nativeElement)
