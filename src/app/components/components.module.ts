@@ -10,6 +10,7 @@ import { ShopSectionComponent } from './shop-section/shop-section.component';
 import { SectionItemComponent } from './section-item/section-item.component';
 import { SectionDirectoryComponent } from './section-directory/section-directory.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ModalComponent } from './modal/modal.component';
 
 
 
@@ -22,7 +23,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ButtonComponent,
     ShopSectionComponent,
     SectionItemComponent,
-    SectionDirectoryComponent
+    SectionDirectoryComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,
