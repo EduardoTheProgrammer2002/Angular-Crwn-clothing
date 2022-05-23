@@ -1,8 +1,12 @@
 <!-- Tabs -->
 <ul class="flex flex-wrap mb-4">
-    <li *ngFor="let tab of tabs" class="flex-auto text-center">
-        <a class="login-tap block rounded py-3 px-4 transition hover:text-white text-white
-            bg-indigo-400" href="#">{{tab.tabTitle}}</a>
+    <li *ngFor="let tab of tabs" class="tap flex-auto text-center pr-[5px]">
+        <a (click)="selectTab(tab)" class="block rounded py-3 px-4 transition text-black hover:shadow-md"  
+            [ngClass]="{
+                'shadow': !tab.active,
+                'login-tap': tab.active
+            }" 
+            href="#">{{tab.tabTitle}}</a>
     </li>
 
 </ul>
