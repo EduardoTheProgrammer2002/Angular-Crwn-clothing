@@ -18,11 +18,13 @@ export class TabContainerComponent implements AfterContentInit {
     }
   }
 
-  selectTab(tab: TabComponent): void {
+  selectTab(tab: TabComponent) {
     this.tabs?.forEach((tab) => {
       tab.active = false;
     });
 
     tab.active = true;
+
+    return false;
   }
 }
