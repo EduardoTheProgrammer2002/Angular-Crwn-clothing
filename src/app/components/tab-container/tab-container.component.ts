@@ -7,13 +7,12 @@ import { TabComponent } from '../tab/tab.component';
   styleUrls: ['./tab-container.component.scss']
 })
 export class TabContainerComponent implements AfterContentInit {
-
   @ContentChildren(TabComponent) tabs: QueryList<TabComponent> = new QueryList();
-
+  
   constructor() { }
 
   ngAfterContentInit(): void {
-    
+
   }
 
 }
