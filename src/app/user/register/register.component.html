@@ -1,23 +1,18 @@
 <!-- Registration Form -->
 <div class="title">
-    <h2>
-       New
-    </h2>
-    <span>
-        Account
-    </span>
+    New Account
 </div>
 <form [formGroup]="registerForm">
     <!-- Name -->
-    <div class="mb-[30px]">
+    <div class="mb-[35px] input-container">
         <app-input [control]="name" type="text" label="Name" placeholder="Enter your Name" ></app-input>
     </div>
     <!-- Email -->
-    <div class="mb-[30px]">
+    <div class="mb-[35px] input-container">
         <app-input [control]="email" type="text" label="Email" placeholder="Enter your Email" ></app-input>
     </div>
     <!-- Age -->
-    <div class="mb-[30px]">
+    <div class="mb-[35px] input-container">
         <app-input [control]="age" type="number" label="Age" placeholder="Enter Age" ></app-input>
     </div>
     <!-- Password -->
@@ -25,7 +20,7 @@
         <app-input [control]="password" type="password" label="Password" placeholder="Password" ></app-input>
     </div>
     <!-- Confirm Password -->
-    <div class="mb-[30px]">
+    <div class="mb-[30px] input-container">
         <app-input [control]="confirm_password" type="password" label="Confirm Password" placeholder="Confirm password" ></app-input>
     </div>
     <button type="submit"
