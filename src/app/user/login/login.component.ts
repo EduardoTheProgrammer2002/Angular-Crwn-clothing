@@ -14,7 +14,8 @@ export class LoginComponent {
     Validators.required
   ]);
   password: FormControl = new FormControl('', [
-    Validators.minLength(8)
+    Validators.minLength(8),
+    Validators.required
   ]);
 
 
