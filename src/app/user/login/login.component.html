@@ -1,20 +1,17 @@
 <div class="title">
-    <h2>
-       Your
-    </h2>
-    <span>
-        Account
-    </span>
+    Your Account
 </div>
 <!-- Login Form -->
 <form [formGroup]="loginForm">
     <!-- Email -->
-    <div class="mb-[30px]">
+    <div class="mb-[5px] input-container">
         <app-input [control]="email" type="text" label="Email" placeholder="Enter your Email" ></app-input>
+        <fa-icon [icon]="user" class="text-[30px] icon"></fa-icon> 
     </div>
     <!-- Password -->
-    <div class="mb-[30px]">
+    <div class="mb-[8px] input-container">
         <app-input [control]="password" type="password" label="Password" placeholder="Password" ></app-input>
+        <fa-icon [icon]="lock" class="text-[30px] icon"></fa-icon> 
     </div>
     <button type="submit"
         class="block formButton rounded transition mb-[30px] mt-[25px]

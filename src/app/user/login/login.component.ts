@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faLock } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +10,11 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  // user Icon and password icon
+  user = faUser;
+  lock = faLock;
+
+
   //formControls
   email: FormControl = new FormControl('', [
     Validators.email,
