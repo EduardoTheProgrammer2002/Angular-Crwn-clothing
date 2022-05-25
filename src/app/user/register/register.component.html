@@ -23,8 +23,9 @@
     <div class="mb-[30px] input-container">
         <app-input [control]="confirm_password" type="password" label="Confirm Password" placeholder="Confirm password" ></app-input>
     </div>
-    <button type="submit"
-        class="block formButton rounded transition mb-[30px] mt-[25px]
+    <button type="submit" [disabled]="registerForm.invalid"
+        [ngClass]="{'apply-hover': !registerForm.invalid}"
+        class="block formButton disabled:opacity-50 rounded transition mb-[30px] mt-[25px]
         hover:bg-indigo-500">
         Submit
     </button>

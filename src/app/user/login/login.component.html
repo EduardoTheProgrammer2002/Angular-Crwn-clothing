@@ -13,9 +13,9 @@
         <app-input [control]="password" type="password" label="Password" placeholder="Password" ></app-input>
         <fa-icon [icon]="lock" class="text-[30px] icon"></fa-icon> 
     </div>
-    <button type="submit"
-        class="block formButton rounded transition mb-[30px] mt-[25px]
-        hover:bg-indigo-500">
+    <button type="submit" [disabled]="loginForm.invalid" 
+        [ngClass]="{'apply-hover': !loginForm.invalid}"
+        class="block formButton disabled:opacity-50 rounded transition mb-[30px] mt-[25px]">
         Submit
     </button>
 </form>
