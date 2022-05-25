@@ -13,6 +13,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ModalComponent } from './modal/modal.component';
 import { TabContainerComponent } from './tab-container/tab-container.component';
 import { TabComponent } from './tab/tab.component';
+import { InputComponent } from './input/input.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -28,12 +30,14 @@ import { TabComponent } from './tab/tab.component';
     SectionDirectoryComponent,
     ModalComponent,
     TabContainerComponent,
-    TabComponent
+    TabComponent,
+    InputComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   exports: [
     CartIconComponent,
@@ -44,7 +48,8 @@ import { TabComponent } from './tab/tab.component';
     SectionDirectoryComponent,
     ModalComponent,
     TabContainerComponent,
-    TabComponent
+    TabComponent,
+    InputComponent
   ]
 })
 export class ComponentsModule { }

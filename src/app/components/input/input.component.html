@@ -1,0 +1,24 @@
+<div class="input-container">
+    <input [formControl]="control" [type]="type" class="input-itself" placeholder=" "/>
+    <label class="input-label">{{label}}</label>
+</div>
+<ng-container *ngIf="control.touched" class="mb-[15px]">
+    <p class="text-red-400 mt-[5px]" *ngIf="control.errors?.['pattern']">
+        Passwords must be at least 8 characters long, have 1
+        uppercase letter, 1 lowercase letter, and 1 number.
+    </p>
+
+    <p *ngIf="control.touched && control.errors?.['required']" class="text-red-400 mt-[5px]">
+        Field is required *
+    </p>
+    <p *ngIf="control.errors?.['minlength'] " class="text-red-400 mt-[5px]">
+        The Field must be at least {{control.errors?.['minlength'].requiredLength}} characters long.
+    </p>
+
+    <p *ngIf="control.errors?.['email'] " class="text-red-400 mt-[5px]">
+        You must enter a valid email.
+    </p>
+    <p *ngIf="control.errors?.['min']" class="text-red-400 mt-[5px]">
+        Sorry! you must be older than 12 years old.
+    </p>
+</ng-container>
