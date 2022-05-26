@@ -18,6 +18,7 @@ export class ItemSectionComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.route.params.subscribe((params: Params) => {
       this.id = params['id'];
       
