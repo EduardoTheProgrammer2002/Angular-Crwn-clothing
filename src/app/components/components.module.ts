@@ -15,6 +15,7 @@ import { TabContainerComponent } from './tab-container/tab-container.component';
 import { TabComponent } from './tab/tab.component';
 import { InputComponent } from './input/input.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ScrollToUpButtonComponent } from './scroll-to-up-button/scroll-to-up-button.component';
 
 
 
@@ -31,7 +32,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ModalComponent,
     TabContainerComponent,
     TabComponent,
-    InputComponent
+    InputComponent,
+    ScrollToUpButtonComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +51,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ModalComponent,
     TabContainerComponent,
     TabComponent,
-    InputComponent
+    InputComponent,
+    ScrollToUpButtonComponent
   ]
 })
 export class ComponentsModule { }
