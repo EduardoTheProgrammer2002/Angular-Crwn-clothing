@@ -14,16 +14,16 @@ export class DirectoryService {
       route: 'hats'
     },
     {
-      title: 'jackets',
-      imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
-      id: 2,
-      route: ''
-    },
-    {
       title: 'sneakers',
       imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
-      id: 3,
+      id: 2,
       route: 'sneakers'
+    },
+    {
+      title: 'jackets',
+      imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+      id: 3,
+      route: ''
     },
     {
       title: 'women',

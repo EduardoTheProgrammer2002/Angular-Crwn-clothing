@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
-import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-scroll-to-up-button',
@@ -15,10 +14,8 @@ export class ScrollToUpButtonComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.showButton, window.scrollY)
     window.addEventListener('scroll', () => {
       this.showButton = window.scrollY > 450 ? true : false;
-      console.log(this.showButton, window.scrollY)
     })
   }
 
