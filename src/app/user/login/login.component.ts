@@ -5,6 +5,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import Iuser from 'src/app/interfaces/Iauth';
 import { AuthService } from 'src/app/services/authServices/auth.service';
+import { StorageService } from 'src/app/services/storageService/storage.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent {
   response: any;
 
   constructor(
-    private auth: AuthService
+    private auth: AuthService,
+    private storage: StorageService
   ) {  }
 
   //formControls
@@ -49,9 +51,11 @@ export class LoginComponent {
       if (!this.response.ok) {
         return;
       }
-      
+      const tokens = this.response.tokens;
+      this.storage.storageToken(tokens.accessToken);
       console.log(res);
     });
+    return;
   }
 
 }
