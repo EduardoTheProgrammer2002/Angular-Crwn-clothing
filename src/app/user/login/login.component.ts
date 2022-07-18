@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FormGroup, Validators } from '@angular/forms';
-import { FormControl } from '@angular/forms';
+import { UntypedFormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 
@@ -16,17 +16,17 @@ export class LoginComponent {
 
 
   //formControls
-  email: FormControl = new FormControl('', [
+  email: UntypedFormControl = new UntypedFormControl('', [
     Validators.email,
     Validators.required
   ]);
-  password: FormControl = new FormControl('', [
+  password: UntypedFormControl = new UntypedFormControl('', [
     Validators.minLength(8),
     Validators.required
   ]);
 
 
-  loginForm = new FormGroup({
+  loginForm = new UntypedFormGroup({
     email: this.email,
     password: this.password
   });
