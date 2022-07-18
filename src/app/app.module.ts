@@ -9,6 +9,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ShopComponent } from './pages/shop/shop.component';
 import { ItemSectionComponent } from './pages/item-section/item-section.component';
 import { UserModule } from './user/user.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { UserModule } from './user/user.module';
     AppRoutingModule,
     ComponentsModule,
     FontAwesomeModule,
-    UserModule
+    UserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,7 +2,7 @@
     Your Account
 </div>
 <!-- Login Form -->
-<form [formGroup]="loginForm">
+<form [formGroup]="loginForm" (submit)="signIn($event)">
     <!-- Email -->
     <div class="mb-[5px] input-container">
         <app-input [control]="email" type="text" label="Email" placeholder="Enter your Email" ></app-input>
