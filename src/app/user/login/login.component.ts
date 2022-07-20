@@ -4,6 +4,7 @@ import { UntypedFormControl } from '@angular/forms';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import Iuser from 'src/app/interfaces/Iauth';
+import { AlertService } from 'src/app/services/alertService/alert.service';
 import { AuthService } from 'src/app/services/authServices/auth.service';
 import { StorageService } from 'src/app/services/storageService/storage.service';
 
@@ -20,7 +21,8 @@ export class LoginComponent {
 
   constructor(
     private auth: AuthService,
-    private storage: StorageService
+    private storage: StorageService,
+    private alert: AlertService
   ) {  }
 
   //formControls
@@ -48,14 +50,35 @@ export class LoginComponent {
     }
     this.auth.signIn(user).subscribe((res) => {
       this.response = res
+      this.alert.updateShowProp(true);
+
+      //something failed and there is an error
       if (!this.response.ok) {
+        //setting the alert component
+        this.alert.updateMsg(this.response.error);
+        this.alert.failedRequest();
         return;
       }
+
+      //setting the alert component
+      this.alert.updateMsg("Success! now you're logged in");
+      this.alert.successRequest();
+
+      //storing the token in local storage
       const tokens = this.response.tokens;
       this.storage.storageToken(tokens.accessToken);
-      console.log(res);
+
+      //clear the form
+      this.clearForm();
     });
     return;
+  }
+
+  clearForm() {
+    this.email.markAsUntouched();
+    this.password.markAsUntouched();
+    this.email.setValue('');
+    this.password.setValue('');
   }
 
 }
