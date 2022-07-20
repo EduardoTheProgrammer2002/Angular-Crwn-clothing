@@ -1,0 +1,10 @@
+<div [@popAlert]="alertState" class="alert" [ngClass]="{'success': success, 'failed': !success}">
+    <div class="decoration"></div>
+    <fa-icon [icon]="successIcon"  class="icon"></fa-icon>
+
+    <div class="content">
+        <div class="msg">Success! know your log In</div>
+    </div>
+    <fa-icon [icon]="closeIcon"  class="x-icon" (click)="toggleState()" ></fa-icon>
+    <progress class="time-bar" [value]="100 - time" max="100"></progress>
+</div>
