@@ -6,6 +6,7 @@ import { faLock } from '@fortawesome/free-solid-svg-icons';
 import Iuser from 'src/app/interfaces/Iauth';
 import { AlertService } from 'src/app/services/alertService/alert.service';
 import { AuthService } from 'src/app/services/authServices/auth.service';
+import { ModalService } from 'src/app/services/modal.service';
 import { StorageService } from 'src/app/services/storageService/storage.service';
 
 @Component({
@@ -22,7 +23,8 @@ export class LoginComponent {
   constructor(
     private auth: AuthService,
     private storage: StorageService,
-    private alert: AlertService
+    private alert: AlertService,
+    private modal: ModalService
   ) {  }
 
   //formControls
@@ -70,6 +72,7 @@ export class LoginComponent {
 
       //clear the form
       this.clearForm();
+      this.modal.setTimeToCloseModal(3100, 'auth');
     });
     return;
   }

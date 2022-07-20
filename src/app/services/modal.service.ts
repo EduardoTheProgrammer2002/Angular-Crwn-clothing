@@ -31,4 +31,10 @@ export class ModalService {
       modal.visible = !modal.visible;
     }
   }
+
+  setTimeToCloseModal(time: number, id: string): void {
+    setTimeout(() => {
+      this.toggleModal(id);
+    }, time);
+  }
 }
