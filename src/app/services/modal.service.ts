@@ -32,6 +32,7 @@ export class ModalService {
     }
   }
 
+  //using the given time this function close the modal.
   setTimeToCloseModal(time: number, id: string): void {
     setTimeout(() => {
       this.toggleModal(id);

@@ -18,6 +18,8 @@ export class LoginComponent {
   // user Icon and password icon
   user = faUser;
   lock = faLock;
+
+  //response of the backend
   response: any;
 
   constructor(
@@ -43,7 +45,7 @@ export class LoginComponent {
     password: this.password
   });
 
-
+  //method used to sign a user in
   signIn(event: Event) {
     event.preventDefault();
     const user: Iuser = {

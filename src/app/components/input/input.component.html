@@ -21,4 +21,7 @@
     <p *ngIf="control.errors?.['min']" class="text-red-400 mt-[5px]">
         Sorry! you must be older than 12 years old.
     </p>
+    <p *ngIf="control.errors?.['noMatch']" class="text-red-400 mt-[5px]">
+        Passwords do not match.
+    </p>
 </ng-container>
