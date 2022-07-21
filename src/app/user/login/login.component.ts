@@ -80,8 +80,7 @@ export class LoginComponent {
   }
 
   clearForm() {
-    this.email.markAsUntouched();
-    this.password.markAsUntouched();
+    this.loginForm.markAsUntouched();
     this.email.setValue('');
     this.password.setValue('');
   }

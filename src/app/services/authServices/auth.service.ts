@@ -13,4 +13,9 @@ export class AuthService {
   signIn(user: Iuser) {
     return this.http.post(`${this.apiUrl}/api/auth/signin`, user);
   }
+
+  signUp(user: Iuser) {
+    return this.http.post(`${this.apiUrl}/api/auth/signup`, user);
+  }
+
 }

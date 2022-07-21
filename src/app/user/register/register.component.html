@@ -2,7 +2,7 @@
 <div class="title">
     New Account
 </div>
-<form [formGroup]="registerForm">
+<form [formGroup]="registerForm" (submit)="signUp($event)">
     <!-- Name -->
     <div class="mb-[35px] input-container">
         <app-input [control]="name" type="text" label="Name" placeholder="Enter your Name" ></app-input>
