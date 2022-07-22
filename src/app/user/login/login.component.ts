@@ -61,6 +61,7 @@ export class LoginComponent {
         //setting the alert component
         this.alert.updateMsg(this.response.error);
         this.alert.failedRequest();
+        this.storeAuthState(false);
         return;
       }
 
@@ -68,9 +69,10 @@ export class LoginComponent {
       this.alert.updateMsg("Success! now you're logged in");
       this.alert.successRequest();
 
-      //storing the token in local storage
+      //storing the token in local storage and store the authState
       const tokens = this.response.tokens;
       this.storage.storageToken(tokens.accessToken);
+      this.storeAuthState(true);
 
       //clear the form
       this.clearForm();
@@ -83,6 +85,10 @@ export class LoginComponent {
     this.loginForm.markAsUntouched();
     this.email.setValue('');
     this.password.setValue('');
+  }
+
+  storeAuthState(doIt: boolean) {
+    this.storage.storeAuthState(doIt);
   }
 
 }
