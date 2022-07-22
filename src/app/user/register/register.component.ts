@@ -65,13 +65,15 @@ export class RegisterComponent {
       if (!this.response.ok) {
         this.alert.failedRequest();
         this.alert.updateMsg(this.response.error);
+        this.storage.storeAuthState(false);
         return;
       }
 
       //The user is ready to be signed up
-      //get the token and store it
+      //get the token and store it, also store the authState
       const token = this.response.tokens.accessToken; 
       this.storage.storageToken(token);
+      this.storage.storeAuthState(true);
 
       //get the alert ready
       this.alert.successRequest();
