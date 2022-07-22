@@ -62,6 +62,8 @@ export class RegisterComponent {
     this.auth.signUp(user).subscribe(val => {
       this.response = val;
       this.alert.updateShowProp(true);
+      
+      //an error came up
       if (!this.response.ok) {
         this.alert.failedRequest();
         this.alert.updateMsg(this.response.error);

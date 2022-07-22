@@ -4,5 +4,10 @@ interface Iuser {
     password: string,
     confirmPassword?:string
 }
+export interface IAuthUser {
+    id: number,
+    name: string,
+    email: string
+}
 
 export default Iuser;

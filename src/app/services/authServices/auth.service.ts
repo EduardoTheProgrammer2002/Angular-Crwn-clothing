@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import Iuser from 'src/app/interfaces/Iauth';
 import { environment } from 'src/environments/environment';
@@ -18,4 +18,15 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/api/auth/signup`, user);
   }
 
+  getAuthUser(token: string) {
+    //define the header with the token
+    const headers: HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+
+    const requestOptions = {headers: headers};
+
+    return this.http.get(`${this.apiUrl}/api/user`, requestOptions);
+  }
 }
