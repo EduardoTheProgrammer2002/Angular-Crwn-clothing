@@ -10,9 +10,15 @@
         <a routerLink="/shop" routerLinkActive="mb-[5px] active border-b-2 border-gray-500 font-bold" class="nav-link">
             SHOP
         </a>
-        <a (click)="openModal($event, 'auth')" routerLinkActive="mb-[5px] active border-b-2 border-gray-500 font-bold" class="nav-link">
+        <a (click)="openModal($event, 'auth')"  *ngIf="!authState" routerLinkActive="mb-[5px] active border-b-2 border-gray-500 font-bold" class="nav-link">
             SIGN IN
         </a>
+
+        <a *ngIf="authState" routerLinkActive="mb-[5px] active border-b-2 border-gray-500 font-bold" class="nav-link">
+            SIGN OUT
+        </a>
+
+
         <div class="nav-link">
             <app-cart-icon></app-cart-icon>
         </div>
