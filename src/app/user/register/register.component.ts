@@ -73,8 +73,8 @@ export class RegisterComponent {
 
       //The user is ready to be signed up
       //get the token and store it, also store the authState
-      const token = this.response.tokens.accessToken; 
-      this.storage.storageToken(token);
+      const token = this.response.tokens; 
+      this.storage.storeTokens(token);
       this.storage.storeAuthState(true);
 
       //get the alert ready

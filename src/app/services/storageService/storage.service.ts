@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { IAuthUser } from 'src/app/interfaces/Iauth';
+import { IAuthUser, IToken } from 'src/app/interfaces/Iauth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StorageService {
-  token: Subject<(string | null)> = new BehaviorSubject<(string | null)>(this.getToken());
+  token: Subject<(string | null)> = new BehaviorSubject<(string | null)>(this.getToken('accessToken'));
   authState: Subject<boolean> = new BehaviorSubject<boolean>(this.getAuthState());
   user: Subject<(null | IAuthUser)> = new BehaviorSubject<(null | IAuthUser)>(null);
 
@@ -16,21 +16,26 @@ export class StorageService {
     this.user.next(user);
   }
 
-  storageToken(token: string) {
-    localStorage.setItem('token', token);
-    this.token.next(token);
+  storeTokens(tokens: IToken) {
+    const {accessToken, refreshToken} = tokens;
+    //storing the tokens
+    localStorage.setItem('tokens', JSON.stringify(tokens));
+    
+    this.token.next(accessToken);
   }
 
-  removeToken():void {
-    if(!localStorage.getItem('token')) {
-      return;
+  removeTokens():void {
+    localStorage.removeItem('tokens');
+  }
+
+  getToken(tokenName: string): (string | null) {
+    const nonParsed = localStorage.getItem('tokens');
+    const tokens = nonParsed && JSON.parse(nonParsed);
+    if (!tokens) {
+      return null;
     }
-    localStorage.removeItem('token');
-  }
 
-  getToken() {
-    const token: (string | null) = localStorage.getItem('token'); 
-    return token;
+    return tokens[tokenName];
   }
 
   storeAuthState(value:boolean): void {

@@ -71,7 +71,7 @@ export class LoginComponent {
 
       //storing the token in local storage and store the authState
       const tokens = this.response.tokens;
-      this.storage.storageToken(tokens.accessToken);
+      this.storage.storeTokens(tokens);
       this.storeAuthState(true);
 
       //clear the form

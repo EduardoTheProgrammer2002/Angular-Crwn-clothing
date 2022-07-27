@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
           //set AuthState to false and the user to null
           this.storage.storeAuthState(false);
           this.storage.setUser(null);
-          this.storage.removeToken();
+          this.storage.removeTokens();
           return;
         }
 

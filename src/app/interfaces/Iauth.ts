@@ -10,4 +10,9 @@ export interface IAuthUser {
     email: string
 }
 
+export interface IToken {
+    accessToken: string,
+    refreshToken: string
+}
+
 export default Iuser;
