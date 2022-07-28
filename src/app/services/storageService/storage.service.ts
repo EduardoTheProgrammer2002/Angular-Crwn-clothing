@@ -26,6 +26,7 @@ export class StorageService {
 
   removeTokens():void {
     localStorage.removeItem('tokens');
+    this.token.next(null);
   }
 
   getToken(tokenName: string): (string | null) {

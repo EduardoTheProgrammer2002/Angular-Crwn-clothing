@@ -22,11 +22,22 @@ export class AuthService {
     //define the header with the token
     const headers: HttpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+      'Authorization': `Access ${token}`
     });
 
     const requestOptions = {headers: headers};
 
     return this.http.get(`${this.apiUrl}/api/user`, requestOptions);
+  }
+
+  refreshAuth(token:string) {
+        //define the header with the token
+        const headers: HttpHeaders = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': `Refresh ${token}`
+        });
+    
+        const requestOptions = {headers: headers};
+        return this.http.get(`${this.apiUrl}/api/auth/refresh`, requestOptions);
   }
 }
