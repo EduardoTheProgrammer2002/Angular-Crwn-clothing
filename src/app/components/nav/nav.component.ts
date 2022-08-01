@@ -20,9 +20,6 @@ export class NavComponent implements OnInit {
     })
   }
 
-  clck() {
-    console.log('click');
-  }
 
   openModal(event: Event, id: string) {
     event.preventDefault();

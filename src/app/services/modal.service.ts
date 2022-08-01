@@ -32,10 +32,18 @@ export class ModalService {
     }
   }
 
+  changeModalState(id: string, state: boolean): void {
+    const modal = this.modals.find(ele => ele.id === id);
+
+    if (modal) {
+      modal.visible = state;
+    }
+  }
+
   //using the given time this function close the modal.
   setTimeToCloseModal(time: number, id: string): void {
     setTimeout(() => {
-      this.toggleModal(id);
+      this.changeModalState(id, false);
     }, time);
   }
 }

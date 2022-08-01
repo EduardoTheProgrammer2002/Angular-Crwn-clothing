@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     if(!this.refreshToken) {
       console.log('No user logged in');
+      this.storage.storeAuthState(false);
       return;
     }
 
@@ -30,6 +31,7 @@ export class AppComponent implements OnInit {
 
       if (!response.ok) {
         this.storage.removeTokens();
+        this.storage.storeAuthState(false);
         console.log('No user logged in');
         return;
       }
