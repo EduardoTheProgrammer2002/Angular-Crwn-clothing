@@ -6,6 +6,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SignoutModalComponent } from './signout-modal/signout-modal.component';
+import { SignoutComponent } from './signout/signout.component';
 
 
 
@@ -14,7 +16,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   declarations: [
     AuthModalComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    SignoutModalComponent,
+    SignoutComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +27,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FontAwesomeModule
   ],
   exports: [
-    AuthModalComponent
+    AuthModalComponent,
+    SignoutModalComponent
   ]
 })
 export class UserModule { }
