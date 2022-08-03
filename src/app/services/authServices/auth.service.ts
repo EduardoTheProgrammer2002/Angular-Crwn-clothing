@@ -18,6 +18,10 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/api/auth/signup`, user);
   }
 
+  signout() {
+    return this.http.delete(`${this.apiUrl}/api/auth/signout`);
+  }
+
   getAuthUser(token: string) {
     //define the header with the token
     const headers: HttpHeaders = new HttpHeaders({
