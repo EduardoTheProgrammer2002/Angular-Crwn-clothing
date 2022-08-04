@@ -14,7 +14,7 @@
             SIGN IN
         </a>
 
-        <a *ngIf="authState" routerLinkActive="mb-[5px] active border-b-2 border-gray-500 font-bold" class="nav-link">
+        <a (click)="openModal($event, 'signout')" *ngIf="authState" routerLinkActive="mb-[5px] active border-b-2 border-gray-500 font-bold" class="nav-link">
             SIGN OUT
         </a>
 

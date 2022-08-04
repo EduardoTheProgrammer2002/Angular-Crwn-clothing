@@ -1,1 +1,16 @@
-<p>signout works!</p>
+<div class="modal-container">
+    <div class="heading">
+        <fa-icon [icon]="warning" class="warning-icon"></fa-icon>
+        <h2 class="title">Are you sure you want to sign out?</h2>
+    </div>
+    <div class="btn-container">
+        <button class="check-btn btn" (click)="signOut()">
+            <fa-icon [icon]="check" class="check-icon"></fa-icon>
+            <span>Yes, log out.</span>
+        </button>
+        <button class="cancel-btn btn" (click)="closeModal($event, 'signout')">
+            <fa-icon [icon]="cancel" class="cancel-icon"></fa-icon>
+            <span>No, cancel.</span>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+.modal-container {
+    display: flex;
+    flex-direction: column;
+
+    & .heading {
+        // background-color: rgb(114, 111, 111);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        // margin: auto;
+
+
+        & .warning-icon {
+            color: #7C99AC;
+            font-size: 50px;
+            margin-left: 60px;
+            margin-bottom: 3px;
+        }
+
+        .title {
+            font-size: 18px;
+            margin-top: 0;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+    }
+
+    & .btn-container {
+        margin: 30px 20px;
+        display: flex;
+        justify-content: space-between;
+
+
+        .btn {
+            // border: 2px solid red;
+            padding: 8px 25px;
+            padding-left: 15px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 4px 2px rgba($color: #000000, $alpha: 0.5);
+        }
+
+        .check-btn {
+            background-color: #D3DEDC;
+            display: flex;
+            align-items: center;
+            
+            .check-icon {
+                color: #3cbb38;
+                font-size: 35px;
+                padding-right: 15px;
+            }
+
+            span {
+                color: black;
+                font-weight: bold;
+                font-size: 19px;
+            }
+        }
+
+        .check-btn:hover {
+            background-color: #84d181;
+            span {
+                color: white;
+            }
+        }
+
+        .check-btn:active {
+            box-shadow: none;
+        }
+
+        
+        .cancel-btn {
+            background-color: #D3DEDC;
+            display: flex;
+            align-items: center;
+            // box-shadow: 0px 2px 4px 2px rgba($color: #ff7777, $alpha: 0.7);
+            .cancel-icon {
+                color: #fa4a4a;
+                font-size: 25px;
+                padding-right: 15px;
+            }
+
+            span {
+                color: rgb(0, 0, 0);
+                font-weight: bold;
+                font-size: 19px;
+            }
+        }
+
+        .cancel-btn:hover {
+            background-color: #ff9191;
+
+            span {
+                color: white;
+            }
+        }
+
+        .cancel-btn:active {
+            box-shadow: none;
+        }
+    }
+}

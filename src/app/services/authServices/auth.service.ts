@@ -18,7 +18,7 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/api/auth/signup`, user);
   }
 
-  signout() {
+  signOut() {
     return this.http.delete(`${this.apiUrl}/api/auth/signout`);
   }
 
