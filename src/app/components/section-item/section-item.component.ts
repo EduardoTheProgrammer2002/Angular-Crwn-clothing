@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import IItems from 'src/app/interfaces/Iitems';
 import { faStarHalf } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { ModalService } from 'src/app/services/modal.service';
+import { StorageService } from 'src/app/services/storageService/storage.service';
 
 @Component({
   selector: 'app-section-item',
@@ -19,7 +21,10 @@ export class SectionItemComponent implements OnInit {
   starIcon = faStar;
   startHalf = faStarHalf;
   
-  constructor() { }
+  constructor(
+    private modal: ModalService,
+    private storage: StorageService
+  ) { }
 
   ngOnInit(): void {
     this.rating =  Array(Math.trunc(this.item?.rating?? 0));
@@ -29,6 +34,25 @@ export class SectionItemComponent implements OnInit {
   //func to check when a number is floating
   isFloat(n:number): boolean{
     return Number(n) === n && n % 1 !== 0;
+  }
+
+  addItem() {
+    this.storage.authState.subscribe(val => {
+      const authState = val;
+
+      //if authState is false, no one is able to add items to cart.
+      if (!authState) {
+        this.openModal('auth');
+        return;
+      }
+
+      //make the request to add the item
+      return;
+    })
+  }
+
+  openModal(id: string) {
+    this.modal.toggleModal(id);
   }
 
 }

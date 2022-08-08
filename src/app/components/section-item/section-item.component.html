@@ -8,5 +8,5 @@
         <fa-icon [icon]="starIcon" *ngFor="let i of rating" class="star-icon"></fa-icon>
         <fa-icon [icon]="startHalf" *ngIf="showHalfStar" class="star-icon"></fa-icon>
     </div>
-    <app-button class="btn w-[80%]" buttonType="inverted">Add to cart</app-button>
+    <app-button (click)="addItem()" class="btn w-[80%]" buttonType="inverted">Add to cart</app-button>
 </div>
