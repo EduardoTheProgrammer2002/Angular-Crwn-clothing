@@ -5,3 +5,9 @@ export default interface IItems{
     price: number,
     rating: number
 }
+
+export interface IITemToStore {
+    name: string,
+    imgUrl: string,
+    price: number
+};

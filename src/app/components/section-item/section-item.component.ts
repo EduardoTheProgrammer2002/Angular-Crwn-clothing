@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import IItems from 'src/app/interfaces/Iitems';
+import IItems, { IITemToStore } from 'src/app/interfaces/Iitems';
 import { faStarHalf } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { ModalService } from 'src/app/services/modal.service';
 import { StorageService } from 'src/app/services/storageService/storage.service';
+import { ItemService } from 'src/app/services/itemService/item.service';
 
 @Component({
   selector: 'app-section-item',
@@ -23,7 +24,9 @@ export class SectionItemComponent implements OnInit {
   
   constructor(
     private modal: ModalService,
-    private storage: StorageService
+    private storage: StorageService,
+    private Item: ItemService
+    
   ) { }
 
   ngOnInit(): void {
@@ -37,17 +40,37 @@ export class SectionItemComponent implements OnInit {
   }
 
   addItem() {
-    this.storage.authState.subscribe(val => {
+    //we access the authState to take make sure whether there is a user authenticated or not.
+    return this.storage.authState.subscribe(val => {
       const authState = val;
 
       //if authState is false, no one is able to add items to cart.
       if (!authState) {
         this.openModal('auth');
+        console.log('Log in to add item to cart!');
         return;
       }
 
-      //make the request to add the item
-      return;
+      
+      //access the accessToken to send the request to the backend
+      return this.storage.token.subscribe(token => {
+        //make the item object
+        const item: IITemToStore = {
+          name: this.item?.name?? '',
+          imgUrl: this.item?.imageUrl?? '',
+          price: this.item?.price?? 0,
+        };
+
+        //send the request to the backend with the token and item to be store
+        this.Item.storeItem(item, token?? '').subscribe(res => {
+          const response:any = res;
+          if (!response.ok) {
+            console.error(response.error);
+            return;
+          }
+          return;
+        });
+      });
     })
   }
 
