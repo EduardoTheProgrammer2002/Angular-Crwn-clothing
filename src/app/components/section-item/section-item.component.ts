@@ -70,6 +70,8 @@ export class SectionItemComponent implements OnInit {
           }
           return;
         });
+
+        this.Item.setLocalItems(token);
       });
     })
   }

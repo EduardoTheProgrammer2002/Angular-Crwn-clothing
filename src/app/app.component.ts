@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IToken } from './interfaces/Iauth';
 import { AuthService } from './services/authServices/auth.service';
+import { ItemService } from './services/itemService/item.service';
 import { ShopService } from './services/shop.service';
 import { StorageService } from './services/storageService/storage.service';
 
@@ -14,7 +15,8 @@ export class AppComponent implements OnInit {
   constructor(
     public data: ShopService,
     private auth: AuthService,
-    private storage: StorageService
+    private storage: StorageService,
+    private item: ItemService
     ) {}
 
   refreshToken: (string | null) = this.storage.getToken('refreshToken');
@@ -42,8 +44,12 @@ export class AppComponent implements OnInit {
       //accessing the token
       this.storage.token.subscribe(token => {
         if(!token) {
+          this.setItems(null)
           return;
         }
+        //get items
+        this.setItems(token);
+
         //get the user if the token is not out of date.
         this.auth.getAuthUser(token).subscribe(res => {
           const response:any = res;
@@ -66,6 +72,10 @@ export class AppComponent implements OnInit {
     });
 
     
+  }
+
+  setItems(token: (string | null)) {
+    this.item.setLocalItems(token);
   }
   
 }

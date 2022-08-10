@@ -4,10 +4,18 @@ export default interface IItems{
     imageUrl: string,
     price: number,
     rating: number
-}
+};
 
 export interface IITemToStore {
     name: string,
     imgUrl: string,
     price: number
+};
+
+export interface IItem {
+    imgurl: string,
+    description: string,
+    quantity: string,
+    price: string,
+    userid: string
 };

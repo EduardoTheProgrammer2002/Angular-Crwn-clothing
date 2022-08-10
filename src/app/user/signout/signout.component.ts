@@ -44,6 +44,7 @@ export class SignoutComponent implements OnInit {
         }
         
         this.storage.removeTokens();
+        this.storage.setItems(null);
         this.storage.storeAuthState(false);
         this.storage.setUser(null);
         this.alert.updateMsg(response.msg);

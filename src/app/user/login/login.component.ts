@@ -6,6 +6,7 @@ import { faLock } from '@fortawesome/free-solid-svg-icons';
 import Iuser from 'src/app/interfaces/Iauth';
 import { AlertService } from 'src/app/services/alertService/alert.service';
 import { AuthService } from 'src/app/services/authServices/auth.service';
+import { ItemService } from 'src/app/services/itemService/item.service';
 import { ModalService } from 'src/app/services/modal.service';
 import { StorageService } from 'src/app/services/storageService/storage.service';
 
@@ -26,7 +27,8 @@ export class LoginComponent {
     private auth: AuthService,
     private storage: StorageService,
     private alert: AlertService,
-    private modal: ModalService
+    private modal: ModalService,
+    private item: ItemService
   ) {  }
 
   //formControls
@@ -73,6 +75,7 @@ export class LoginComponent {
       const tokens = this.response.tokens;
       this.storage.storeTokens(tokens);
       this.storeAuthState(true);
+      this.item.setLocalItems(tokens.accessToken);
 
       //clear the form
       this.clearForm();

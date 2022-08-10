@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { IAuthUser, IToken } from 'src/app/interfaces/Iauth';
+import { IItem } from 'src/app/interfaces/Iitems';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,13 @@ export class StorageService {
   token: Subject<(string | null)> = new BehaviorSubject<(string | null)>(this.getToken('accessToken'));
   authState: Subject<boolean> = new BehaviorSubject<boolean>(this.getAuthState());
   user: Subject<(null | IAuthUser)> = new BehaviorSubject<(null | IAuthUser)>(null);
+  items: Subject<(null | IItem[])> = new BehaviorSubject<(null | IItem[])>(null);
 
   constructor() { }
+
+  setItems(items: (IItem[] | null)) {
+    this.items.next(items);
+  }
 
   setUser(user: (IAuthUser | null)) {
     this.user.next(user);
