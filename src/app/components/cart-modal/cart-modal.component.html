@@ -1,6 +1,10 @@
 <div class="cart-container">
-    <div class="cart-item-container">
-        <app-cart-item id="item"></app-cart-item>
+    <div *ngIf="showItems" class="cart-item-container">
+        <app-cart-item id="item" *ngFor="let item of items" [item]="item"></app-cart-item>
+    </div>
+
+    <div *ngIf="!showItems" class="empty-items">
+        Hola
     </div>
     <app-button class="btn">Checkout</app-button>
 </div>
