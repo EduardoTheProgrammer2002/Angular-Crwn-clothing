@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ScrollToUpButtonComponent } from './scroll-to-up-button/scroll-to-up-button.component';
 import { AlertComponent } from './alert/alert.component';
 import { CartModalComponent } from './cart-modal/cart-modal.component';
+import { CartItemComponent } from './cart-item/cart-item.component';
 
 
 
@@ -37,7 +38,8 @@ import { CartModalComponent } from './cart-modal/cart-modal.component';
     InputComponent,
     ScrollToUpButtonComponent,
     AlertComponent,
-    CartModalComponent
+    CartModalComponent,
+    CartItemComponent
   ],
   imports: [
     CommonModule,

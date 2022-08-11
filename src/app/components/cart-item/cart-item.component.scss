@@ -1,0 +1,37 @@
+.item-container {
+    width: auto;
+    margin-left: 3px;
+    margin-top: 3px;
+    border-radius: 2px;
+    background-color: #FFEFEF;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .img-cont {
+        & img {
+            border-radius: 2px;
+            width: 75px;
+        }
+    }
+    
+    .item-info {
+        margin-left: 7px;
+        font-weight: bold;
+
+        .description {
+            color: #7C99AC;
+        }
+
+        .price-quantity {
+            .mult-simbol {
+                color: rgb(158, 34, 34);
+            }
+
+            .price {
+                color: rgb(10, 155, 10);
+            }
+        }
+    }
+
+}

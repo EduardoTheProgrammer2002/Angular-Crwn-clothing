@@ -1,0 +1,15 @@
+<div class="item-container">
+    <div class="img-cont">
+        <img [src]="item.imgurl" alt="item">
+    </div>
+    <div class="item-info">
+        <div class="price-quantity">
+            <span>
+                {{item.quantity}} <span class="mult-simbol"></span>x <span class="price"> {{item.price}}$</span>
+            </span>
+        </div>
+        <div class="description">
+            <span>{{item.description}}</span>
+        </div>
+    </div>
+</div>
