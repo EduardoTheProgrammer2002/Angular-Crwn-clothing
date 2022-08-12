@@ -11,8 +11,7 @@ export class CartItemComponent implements OnInit {
     imgurl: 'https://i.ibb.co/ypkgK0X/blue-beanie.png',
     description: 'Brown Brim',
     quantity: '25',
-    price: '120',
-    userid: '2'
+    price: '120'
   }
   constructor() { }
 

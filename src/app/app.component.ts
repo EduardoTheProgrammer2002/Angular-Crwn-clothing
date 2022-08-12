@@ -47,7 +47,8 @@ export class AppComponent implements OnInit {
           this.setItems(null)
           return;
         }
-        //get items
+
+        //get items and set the local items variable.
         this.setItems(token);
 
         //get the user if the token is not out of date.

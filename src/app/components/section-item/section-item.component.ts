@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import IItems, { IITemToStore } from 'src/app/interfaces/Iitems';
+import IItems, { IItem, IITemToStore } from 'src/app/interfaces/Iitems';
 import { faStarHalf } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { ModalService } from 'src/app/services/modal.service';
@@ -58,7 +58,7 @@ export class SectionItemComponent implements OnInit {
         const item: IITemToStore = {
           name: this.item?.name?? '',
           imgUrl: this.item?.imageUrl?? '',
-          price: this.item?.price?? 0,
+          price: this.item?.price?? 0
         };
 
         //send the request to the backend with the token and item to be store
@@ -71,7 +71,15 @@ export class SectionItemComponent implements OnInit {
           return;
         });
 
-        this.Item.setLocalItems(token);
+        const ItemToAdd: IItem = {
+          imgurl: item.imgUrl,
+          description: item.name,
+          quantity: '1',
+          price: JSON.stringify(item.price)
+        }
+
+        this.storage.addItem(ItemToAdd);
+        // this.Item.setLocalItems(token);
       });
     })
   }

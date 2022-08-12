@@ -41,25 +41,26 @@ export class ItemService {
     return this.http.get(`${this.apiUrl}/api/getItems`, requestOptions);
   }
 
+  //set locals items by obtaining the items from the backend
   setLocalItems(token: (string | null)) {
     //if token is null, do not make the request.
     if (!token) {
-      this.storage.setItems(null);
+      this.storage.removeItems();
       return;
     }
 
-    this.getItems(token).subscribe(res => {
+    return this.getItems(token).subscribe(res => {
       const response: any = res;
       const {items, error} = response;
 
       //verifying if there is an error.
       if (error) {
         console.error(error);
-        this.storage.setItems(null);
+        this.storage.removeItems();
         return;
       }
 
-      this.storage.setItems(items);
+      this.storage.storeItems(items);
       return;
     });
   }

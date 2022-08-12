@@ -21,7 +21,6 @@ export class CartModalComponent implements OnInit {
       }
 
       this.items = items;
-      console.log(this.items)
       this.showItems = true;
       return;
     });

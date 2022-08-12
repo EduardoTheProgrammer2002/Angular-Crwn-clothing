@@ -10,18 +10,74 @@ export class StorageService {
   token: Subject<(string | null)> = new BehaviorSubject<(string | null)>(this.getToken('accessToken'));
   authState: Subject<boolean> = new BehaviorSubject<boolean>(this.getAuthState());
   user: Subject<(null | IAuthUser)> = new BehaviorSubject<(null | IAuthUser)>(null);
-  items: Subject<(null | IItem[])> = new BehaviorSubject<(null | IItem[])>(null);
+  items: Subject<(null | IItem[])> = new BehaviorSubject<(null | IItem[])>(this.getItems());
 
   constructor() { }
 
-  setItems(items: (IItem[] | null)) {
+  //store items in local storage
+  storeItems(items: IItem[]) {
     this.items.next(items);
+    
+    if(!items) {
+      this.removeItems();
+      return;
+    }
+    localStorage.setItem('items', JSON.stringify(items));
   }
 
+  //remove items from local storage
+  removeItems() {
+    this.items.next(null);
+    localStorage.removeItem('items');
+  }
+
+  //get items from local storage
+  getItems(): (null | IItem[]) {
+    const items = localStorage.getItem('items'); 
+    if (!items) {
+      return null
+    }
+    return JSON.parse(items);
+  }
+
+  //add an Item to the items property in local storage 
+  addItem(item:IItem) {
+    let items = this.getItems(); 
+    
+    //if items is null that means the user hasn't added any item to cart and wants to add an item, so we store it in local storage.
+    if (!items) {
+      this.storeItems([item]);
+      return;
+    }
+
+    const itemIn = items.find(i => i.description === item.description);
+
+    //if the item doesn't exist in the items array we need to add it
+    if(!itemIn) {
+      items.push(item);
+      this.storeItems(items);
+      return;
+    }
+
+    //if the item exists in the items array, we just increase the quantity
+    items = items.map(i => {
+      if (i.description === item.description) {
+        const newQuantity = Number(i.quantity) + 1;
+        i.quantity = JSON.stringify(newQuantity);
+        return i;
+      }
+      return i;
+    });
+    this.storeItems(items);
+    return;
+  }
+
+  //this set the user variable
   setUser(user: (IAuthUser | null)) {
     this.user.next(user);
   }
 
+  //functionability to store, remove, get the tokens from local storage and update the local variable
   storeTokens(tokens: IToken) {
     const {accessToken, refreshToken} = tokens;
     //storing the tokens
@@ -45,6 +101,7 @@ export class StorageService {
     return tokens[tokenName];
   }
 
+  //functionability to store the auth state in the local storage and update the local variable
   storeAuthState(value:boolean): void {
     const authState = value ? 'true': 'false';
     localStorage.setItem('authState', authState);

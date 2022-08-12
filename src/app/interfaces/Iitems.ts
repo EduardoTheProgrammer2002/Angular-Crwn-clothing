@@ -16,6 +16,5 @@ export interface IItem {
     imgurl: string,
     description: string,
     quantity: string,
-    price: string,
-    userid: string
+    price: string
 };
