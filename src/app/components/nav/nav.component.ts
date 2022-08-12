@@ -15,7 +15,7 @@ export class NavComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.storage.authState.subscribe(val => {
+    this.storage.authState$.subscribe(val => {
       this.authState = val;
     })
   }

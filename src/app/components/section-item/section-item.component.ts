@@ -40,48 +40,49 @@ export class SectionItemComponent implements OnInit {
   }
 
   addItem() {
-    //we access the authState to take make sure whether there is a user authenticated or not.
-    return this.storage.authState.subscribe(val => {
-      const authState = val;
+    //getting the authState
+    let authState = false;
+    this.storage.authState$.subscribe(state => {
+      authState = state
+    });
+    
+    //Access token
+    const token = this.storage.token;
 
-      //if authState is false, no one is able to add items to cart.
-      if (!authState) {
-        this.openModal('auth');
-        console.log('Log in to add item to cart!');
+    //if authState is false the user ca not add items
+    if(!authState) {
+      this.openModal('auth');
+      console.log('Log in to add item to cart!');
+      return;
+    }
+
+    //if the authstate is true we add the item to the data base
+    const item: IITemToStore = {
+      name: this.item?.name?? '',
+      imgUrl: this.item?.imageUrl?? '',
+      price: this.item?.price?? 0
+    };
+    
+    //make the request to store the item
+    return this.Item.storeItem(item, token?? '').subscribe(res => {
+      const response:any = res;
+      if (!response.ok) {
+        console.error(response.error);
         return;
       }
 
-      
-      //access the accessToken to send the request to the backend
-      return this.storage.token.subscribe(token => {
-        //make the item object
-        const item: IITemToStore = {
-          name: this.item?.name?? '',
-          imgUrl: this.item?.imageUrl?? '',
-          price: this.item?.price?? 0
-        };
+      //the item to be added to the local storage
+      const ItemToAdd: IItem = {
+        imgurl: item.imgUrl,
+        description: item.name,
+        quantity: '1',
+        price: JSON.stringify(item.price)
+      }
 
-        //send the request to the backend with the token and item to be store
-        this.Item.storeItem(item, token?? '').subscribe(res => {
-          const response:any = res;
-          if (!response.ok) {
-            console.error(response.error);
-            return;
-          }
-          return;
-        });
-
-        const ItemToAdd: IItem = {
-          imgurl: item.imgUrl,
-          description: item.name,
-          quantity: '1',
-          price: JSON.stringify(item.price)
-        }
-
-        this.storage.addItem(ItemToAdd);
-        // this.Item.setLocalItems(token);
-      });
-    })
+      //add item to local storage and update the cart 
+      this.storage.addItem(ItemToAdd);
+      return;
+    });
   }
 
   openModal(id: string) {

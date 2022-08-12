@@ -7,16 +7,16 @@ import { IItem } from 'src/app/interfaces/Iitems';
   providedIn: 'root'
 })
 export class StorageService {
-  token: Subject<(string | null)> = new BehaviorSubject<(string | null)>(this.getToken('accessToken'));
-  authState: Subject<boolean> = new BehaviorSubject<boolean>(this.getAuthState());
-  user: Subject<(null | IAuthUser)> = new BehaviorSubject<(null | IAuthUser)>(null);
-  items: Subject<(null | IItem[])> = new BehaviorSubject<(null | IItem[])>(this.getItems());
+  token = this.getToken('accessToken');
+  authState$: Subject<boolean> = new BehaviorSubject<boolean>(this.getAuthState());
+  user$: Subject<(null | IAuthUser)> = new BehaviorSubject<(null | IAuthUser)>(null);
+  items$: Subject<(null | IItem[])> = new BehaviorSubject<(null | IItem[])>(this.getItems());
 
   constructor() { }
 
   //store items in local storage
   storeItems(items: IItem[]) {
-    this.items.next(items);
+    this.items$.next(items);
     
     if(!items) {
       this.removeItems();
@@ -27,7 +27,7 @@ export class StorageService {
 
   //remove items from local storage
   removeItems() {
-    this.items.next(null);
+    this.items$.next(null);
     localStorage.removeItem('items');
   }
 
@@ -74,7 +74,7 @@ export class StorageService {
 
   //this set the user variable
   setUser(user: (IAuthUser | null)) {
-    this.user.next(user);
+    this.user$.next(user);
   }
 
   //functionability to store, remove, get the tokens from local storage and update the local variable
@@ -82,13 +82,12 @@ export class StorageService {
     const {accessToken, refreshToken} = tokens;
     //storing the tokens
     localStorage.setItem('tokens', JSON.stringify(tokens));
-    
-    this.token.next(accessToken);
+    this.token = accessToken;
   }
 
   removeTokens():void {
     localStorage.removeItem('tokens');
-    this.token.next(null);
+    this.token = null;
   }
 
   getToken(tokenName: string): (string | null) {
@@ -105,7 +104,7 @@ export class StorageService {
   storeAuthState(value:boolean): void {
     const authState = value ? 'true': 'false';
     localStorage.setItem('authState', authState);
-    this.authState.next(value);
+    this.authState$.next(value);
   }
 
   getAuthState() {

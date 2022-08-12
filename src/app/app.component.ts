@@ -22,6 +22,23 @@ export class AppComponent implements OnInit {
   refreshToken: (string | null) = this.storage.getToken('refreshToken');
     
   ngOnInit(): void {
+    this.refreshAuth();
+    
+    this.storage.authState$.subscribe(state => {
+      //if state changes to false, remove items and remove tokens
+      if (!state) {
+        this.storage.removeTokens();
+        this.storage.removeItems();
+        return;
+      }
+      //otherwise do something else
+      return;
+    })
+  }
+  
+
+
+  refreshAuth() {
     if(!this.refreshToken) {
       console.log('No user logged in');
       this.storage.storeAuthState(false);
@@ -32,47 +49,17 @@ export class AppComponent implements OnInit {
       const response:any = val;
 
       if (!response.ok) {
-        this.storage.removeTokens();
         this.storage.storeAuthState(false);
         console.log('No user logged in');
         return;
       }
+
       //storing the refreshed tokens
       const tokens:IToken = response.tokens;
       this.storage.storeTokens(tokens);
-
-      //accessing the token
-      this.storage.token.subscribe(token => {
-        if(!token) {
-          this.setItems(null)
-          return;
-        }
-
-        //get items and set the local items variable.
-        this.setItems(token);
-
-        //get the user if the token is not out of date.
-        this.auth.getAuthUser(token).subscribe(res => {
-          const response:any = res;
-  
-          //request failed
-          if (!response.ok) {
-            //set AuthState to false and the user to null
-            this.storage.storeAuthState(false);
-            this.storage.setUser(null);
-            this.storage.removeTokens();
-            return;
-          }
-  
-          //set the authState to true and the user to the user got from the request.
-          this.storage.storeAuthState(true);
-          this.storage.setUser(response.user);
-        });
-      });
-
+      this.storage.authState$.next(true);
+      this.setItems(tokens.accessToken)
     });
-
-    
   }
 
   setItems(token: (string | null)) {

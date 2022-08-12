@@ -14,7 +14,7 @@ export class CartModalComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.storage.items.subscribe(items => {
+    this.storage.items$.subscribe(items => {
       if (!items) {
         this.showItems = false;
         return;
