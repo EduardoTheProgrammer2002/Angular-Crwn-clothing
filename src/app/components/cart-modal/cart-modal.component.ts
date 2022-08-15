@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from 'src/app/services/storageService/storage.service';
+import { faCartPlus, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-cart-modal',
@@ -9,6 +10,8 @@ import { StorageService } from 'src/app/services/storageService/storage.service'
 export class CartModalComponent implements OnInit {
   showItems: boolean = false;
   items: any;
+  emptyCart: IconDefinition = faCartPlus;
+
   constructor(
     private storage: StorageService
   ) { }

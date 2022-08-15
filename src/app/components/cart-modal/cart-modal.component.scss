@@ -28,4 +28,30 @@
         position: absolute;
         bottom: 6px;
     }
+
+    .empty-items {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+
+        & .cart-plus {
+            position: absolute;
+            top: 48px;
+            font-size: 45px;
+            color: rgb(88, 87, 87);
+
+        }
+
+        & .header {
+            // margin-bottom: 20px;
+            font-size: 25px;
+            font-weight: bold;
+            color: rgb(109, 108, 106);
+        }
+    }
 }

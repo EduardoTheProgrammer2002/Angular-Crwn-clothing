@@ -5,7 +5,11 @@
     </div>
     
     <div *ngIf="!showItems" class="empty-items">
-        Hola
+        <fa-icon [icon]="emptyCart" class="cart-plus"></fa-icon>
+        <div class="content">
+            <h1 class="header">Your cart is empty</h1>
+            <span>Please Add Items!</span>
+        </div>
     </div>
     <app-button class="btn" [buttonType]="!showItems ? 'disabled':''" [disabled]="!showItems">Checkout</app-button>
 </div>
