@@ -38,20 +38,42 @@
         align-items: center;
         text-align: center;
         position: relative;
+ 
+        & .icon-container {
+            position: relative;
+            bottom: 20px;
+            // background-color: red;
 
-        & .cart-plus {
-            position: absolute;
-            top: 48px;
-            font-size: 45px;
-            color: rgb(88, 87, 87);
+            & .cart-plus {
+                font-size: 45px;
+                color: rgb(88, 87, 87);
+    
+            }
 
+            & .x-icon {
+                position: absolute;
+                top: 25px;
+                left: 15px;
+                font-size: 21px;
+                font-weight: bold;
+                color: white;
+            }
         }
 
-        & .header {
-            // margin-bottom: 20px;
-            font-size: 25px;
-            font-weight: bold;
-            color: rgb(109, 108, 106);
+        .content {
+            margin-bottom: 50px;
+            
+            & .header {
+                font-size: 25px;
+                font-weight: bold;
+                color: rgb(109, 108, 106);
+            }
+
+            & .sHeader {
+                position: relative;
+                bottom: 7px;
+                font-size: 14px;
+            }
         }
     }
 }
