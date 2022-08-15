@@ -7,6 +7,6 @@
     <div *ngIf="!showItems" class="empty-items">
         Hola
     </div>
-    <app-button class="btn">Checkout</app-button>
+    <app-button class="btn" [buttonType]="!showItems ? 'disabled':''" [disabled]="!showItems">Checkout</app-button>
 </div>
 
