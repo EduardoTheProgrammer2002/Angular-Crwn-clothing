@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IToken } from './interfaces/Iauth';
 import { AuthService } from './services/authServices/auth.service';
+import { CartService } from './services/cartService/cart.service';
 import { ItemService } from './services/itemService/item.service';
 import { ShopService } from './services/shop.service';
 import { StorageService } from './services/storageService/storage.service';
@@ -16,7 +17,8 @@ export class AppComponent implements OnInit {
     public data: ShopService,
     private auth: AuthService,
     private storage: StorageService,
-    private item: ItemService
+    private item: ItemService,
+    public cart: CartService
     ) {}
 
   refreshToken: (string | null) = this.storage.getToken('refreshToken');

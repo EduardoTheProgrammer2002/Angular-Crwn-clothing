@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/services/cartService/cart.service';
 import { ModalService } from 'src/app/services/modal.service';
 import { StorageService } from 'src/app/services/storageService/storage.service';
 
@@ -11,7 +12,8 @@ export class NavComponent implements OnInit {
   authState: boolean = false;
   constructor(
     private modal: ModalService,
-    private storage: StorageService
+    private storage: StorageService,
+    private cart: CartService
   ) { }
 
   ngOnInit(): void {
@@ -24,5 +26,10 @@ export class NavComponent implements OnInit {
   openModal(event: Event, id: string) {
     event.preventDefault();
     this.modal.toggleModal(id);
+  }
+
+  openCartModal(event: Event) {
+    event.preventDefault();
+    this.cart.toggleModal();
   }
 }
