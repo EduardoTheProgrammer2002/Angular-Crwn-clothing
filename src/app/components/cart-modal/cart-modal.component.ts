@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from 'src/app/services/storageService/storage.service';
 import { faShoppingBag, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { CartService } from 'src/app/services/cartService/cart.service';
 
 @Component({
   selector: 'app-cart-modal',
@@ -13,10 +14,18 @@ export class CartModalComponent implements OnInit {
   emptyCart: IconDefinition = faShoppingBag;
 
   constructor(
-    private storage: StorageService
+    private storage: StorageService,
+    private cart: CartService
   ) { }
 
   ngOnInit(): void {
+    //closing the modal when the user scroll down the page
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 420) {
+        this.cart.updateShowProp(false);
+      }
+    });
+
     this.storage.items$.subscribe(items => {
       if (!items) {
         this.showItems = false;
