@@ -45,13 +45,15 @@ export class ItemService {
   setLocalItems(token: (string | null)) {
     //if token is null, do not make the request.
     if (!token) {
+      //remove the items and itemsQuantity
       this.storage.removeItems();
       return;
     }
 
+    //make the request to obtain the items from the backend
     return this.getItems(token).subscribe(res => {
       const response: any = res;
-      const {items, error} = response;
+      const {items, error, itemsQuantity} = response;
 
       //verifying if there is an error.
       if (error) {
@@ -61,6 +63,7 @@ export class ItemService {
       }
 
       this.storage.storeItems(items);
+      this.storage.setQuantity(itemsQuantity);
       return;
     });
   }

@@ -21,7 +21,7 @@ export class StorageService {
     this.itemsQuantity = quantity;
   } 
 
-  // increment 
+  // increasement and decreasement
   increaseQuantity(amount?: number) {
     amount = amount?? 1;
     this.itemsQuantity += amount;
@@ -46,6 +46,7 @@ export class StorageService {
   //remove items from local storage
   removeItems() {
     this.items$.next(null);
+    this.setQuantity(0);
     localStorage.removeItem('items');
   }
 
@@ -60,7 +61,9 @@ export class StorageService {
 
   //add an Item to the items property in local storage 
   addItem(item:IItem) {
-    let items = this.getItems(); 
+    let items = this.getItems();
+    //increase the total quantity
+    this.increaseQuantity(); 
     
     //if items is null that means the user hasn't added any item to cart and wants to add an item, so we store it in local storage.
     if (!items) {

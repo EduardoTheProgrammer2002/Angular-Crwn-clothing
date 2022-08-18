@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from 'src/app/services/storageService/storage.service';
 
 @Component({
   selector: 'app-cart-icon',
@@ -6,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart-icon.component.scss']
 })
 export class CartIconComponent implements OnInit {
-  cartCount = 0
 
-  constructor() { }
+  constructor(
+    public storage: StorageService
+  ) { }
 
   ngOnInit(): void {
   }
