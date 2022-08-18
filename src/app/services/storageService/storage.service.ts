@@ -11,8 +11,26 @@ export class StorageService {
   authState$: Subject<boolean> = new BehaviorSubject<boolean>(this.getAuthState());
   user$: Subject<(null | IAuthUser)> = new BehaviorSubject<(null | IAuthUser)>(null);
   items$: Subject<(null | IItem[])> = new BehaviorSubject<(null | IItem[])>(this.getItems());
+  itemsQuantity: number = 0;
 
   constructor() { }
+
+  
+  //items quantity functionality
+  setQuantity(quantity:number) {
+    this.itemsQuantity = quantity;
+  } 
+
+  // increment 
+  increaseQuantity(amount?: number) {
+    amount = amount?? 1;
+    this.itemsQuantity += amount;
+  } 
+
+  decreaseQuantity(amount?: number) {
+    amount = amount?? 1;
+    this.itemsQuantity -= amount;
+  }
 
   //store items in local storage
   storeItems(items: IItem[]) {
