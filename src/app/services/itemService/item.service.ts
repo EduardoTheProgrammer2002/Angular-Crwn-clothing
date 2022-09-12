@@ -65,8 +65,7 @@ export class ItemService {
     //make the request to obtain the items from the backend
     return this.getItems(token).subscribe(res => {
       const response: any = res;
-      // respo
-      const {items, error, totalQuantity} = response;
+      const {items, error, itemsQuantity} = response;
 
       //verifying if there is an error.
       if (error) {
@@ -76,7 +75,7 @@ export class ItemService {
       }
 
       this.storage.storeItems(items);
-      this.storage.setQuantity(totalQuantity?? 0);
+      this.storage.setQuantity(itemsQuantity?? 0);
       return;
     });
   }

@@ -12,7 +12,6 @@ export class StorageService {
   user$: Subject<(null | IAuthUser)> = new BehaviorSubject<(null | IAuthUser)>(null);
   items$: Subject<(null | IItem[])> = new BehaviorSubject<(null | IItem[])>(this.getItems());
   itemsQuantity: number = 0;
-  num: number = 0
 
   constructor() { }
 
