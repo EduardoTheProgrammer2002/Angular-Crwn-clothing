@@ -6,32 +6,44 @@
     background-color: rgb(240, 240, 240);
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
 
-    .img-cont {
-        & img {
-            border-radius: 2px;
-            width: 75px;
+    .all-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .img-cont {
+            & img {
+                border-radius: 2px;
+                width: 75px;
+            }
         }
-    }
+        
+        .item-info {
+            margin-left: 7px;
+            font-weight: bold;
     
-    .item-info {
-        margin-left: 7px;
-        font-weight: bold;
-
-        .description {
-            color: #7C99AC;
-        }
-
-        .price-quantity {
-            .mult-simbol {
-                color: rgb(158, 34, 34);
+            .description {
+                color: #7C99AC;
             }
-
-            .price {
-                color: rgb(10, 155, 10);
+    
+            .price-quantity {
+                .mult-simbol {
+                    color: rgb(158, 34, 34);
+                }
+    
+                .price {
+                    color: rgb(10, 155, 10);
+                }
             }
         }
     }
+
+    .remove-btn {
+        cursor: pointer;
+    }
+
 
 }

@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IItem } from 'src/app/interfaces/Iitems';
+import { ItemService } from 'src/app/services/itemService/item.service';
+import { StorageService } from 'src/app/services/storageService/storage.service';
 
 @Component({
   selector: 'app-cart-item',
@@ -13,9 +15,28 @@ export class CartItemComponent implements OnInit {
     quantity: '25',
     price: '120'
   }
-  constructor() { }
+  token: (string| null) = this.storage.token
+  constructor(
+    public Item: ItemService,
+    public storage: StorageService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  removeItem(item:IItem) {
+    //removing the item
+    return this.Item.deleteItem(item, this.token?? '').subscribe((res) => {
+      const response:any = res;
+      if (!response.ok) {
+        console.error(response.err);
+        return;
+      }
+      this.storage.removeItem(item);
+      this.storage.decreaseQuantity(Number(item.quantity));
+      
+    });
+
   }
 
 }

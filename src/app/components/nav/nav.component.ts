@@ -12,7 +12,7 @@ export class NavComponent implements OnInit {
   authState: boolean = false;
   constructor(
     private modal: ModalService,
-    private storage: StorageService,
+    public storage: StorageService,
     private cart: CartService
   ) { }
 

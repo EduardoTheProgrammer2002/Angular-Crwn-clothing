@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'; 
-import { IITemToStore } from 'src/app/interfaces/Iitems';
+import { IItem, IITemToStore } from 'src/app/interfaces/Iitems';
 import { environment } from 'src/environments/environment';
 import { StorageService } from '../storageService/storage.service';
 
@@ -29,6 +29,18 @@ export class ItemService {
     return this.http.post(`${this.apiUrl}/api/storeItem`, Item, requestOptions);
   }
 
+  ////this makes a request to the endpoint to delete the item whenever the user click the remove button in every itme in the cart
+  deleteItem(Item: IItem, token: string) {
+    const headers: HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Access ${token}`
+    });
+
+    const requestOptions = {headers: headers, body: Item};
+
+    return this.http.delete(`${this.apiUrl}/api/deleteItem`, requestOptions);
+  }
+
   //this makes a request to obtaine the items of a user
   getItems(token: string) {
     const headers: HttpHeaders = new HttpHeaders({
@@ -53,7 +65,8 @@ export class ItemService {
     //make the request to obtain the items from the backend
     return this.getItems(token).subscribe(res => {
       const response: any = res;
-      const {items, error, itemsQuantity} = response;
+      // respo
+      const {items, error, totalQuantity} = response;
 
       //verifying if there is an error.
       if (error) {
@@ -63,7 +76,7 @@ export class ItemService {
       }
 
       this.storage.storeItems(items);
-      this.storage.setQuantity(itemsQuantity);
+      this.storage.setQuantity(totalQuantity?? 0);
       return;
     });
   }

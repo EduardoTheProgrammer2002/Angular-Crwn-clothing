@@ -25,9 +25,9 @@ export class CartModalComponent implements OnInit {
         this.cart.updateShowProp(false);
       }
     });
-
+    
     this.storage.items$.subscribe(items => {
-      if (!items) {
+      if (!items?.length) {
         this.showItems = false;
         return;
       }

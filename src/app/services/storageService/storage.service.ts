@@ -12,6 +12,7 @@ export class StorageService {
   user$: Subject<(null | IAuthUser)> = new BehaviorSubject<(null | IAuthUser)>(null);
   items$: Subject<(null | IItem[])> = new BehaviorSubject<(null | IItem[])>(this.getItems());
   itemsQuantity: number = 0;
+  num: number = 0
 
   constructor() { }
 
@@ -42,6 +43,7 @@ export class StorageService {
     }
     localStorage.setItem('items', JSON.stringify(items));
   }
+
 
   //remove items from local storage
   removeItems() {
@@ -90,6 +92,24 @@ export class StorageService {
       return i;
     });
     this.storeItems(items);
+    return;
+  }
+
+  //this remove all the quantity of a single product from the local storage
+  removeItem(item: IItem) {
+    //get the items from local storage
+    let items = this.getItems();
+
+    //verify that the itmes exist, this is gonna always be false, but it's always good to check
+    if (!items) {
+      console.log('Items not found');
+      return;
+    }
+
+    //removing the item form items
+    items = items.filter((i) => i.description != item.description);
+    this.storeItems(items); //store the new item's list
+    this.items$.next(items); //send it to the items observable
     return;
   }
 
