@@ -46,12 +46,15 @@ export class StorageService {
   //this updates a single item quantity by specifying the quantity and the item to be modified
   updateItemQuantity(quantity: Number, item: IItem) {
     let items = this.getItems();
-    
+     //this is the variable that will contain the value to be added or substracted to the total items quantity
+    let amountUpdate:number = quantity > Number(item.quantity) ? Number(quantity) - Number(item.quantity) : Number(item.quantity) - Number(quantity) ; 
+
     //make sure if the items variable is not null
     if (!items) {
       return;
     }
 
+    
     //updating the item quantity
     items = items?.map((i) => {
       if(i.description === item.description) {
@@ -60,7 +63,15 @@ export class StorageService {
       }
       return i;
     });
+    
+    //updating the total items quantity
+    if (quantity > Number(item.quantity)) {
+      this.increaseQuantity(amountUpdate);
+    } else {
+      this.decreaseQuantity(amountUpdate);  
+    }
 
+    //storing the items
     this.storeItems(items);
   }
 

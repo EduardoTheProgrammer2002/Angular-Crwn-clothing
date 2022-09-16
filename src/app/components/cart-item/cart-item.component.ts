@@ -50,9 +50,24 @@ export class CartItemComponent implements OnInit {
       this.quantity.setValue('');  
       return;
     }
+    
+    const newItem = {
+      quantity: this.quantity.value,
+      item: this.item
+    }
 
-    this.storage.updateItemQuantity(this.quantity.value, this.item);
-    this.quantity.setValue('');
+    //update the item quantity in the database
+    this.Item.updateItemQuantity(newItem, this.token?? '').subscribe((res:any) => {
+      if(!res.ok) {
+        console.error(res.err);
+        this.quantity.setValue('');
+        return;
+      }
+
+      //update the item quantity in the localstorage
+      this.storage.updateItemQuantity(this.quantity.value, this.item);
+      this.quantity.setValue('');
+    });
   }
 
 }

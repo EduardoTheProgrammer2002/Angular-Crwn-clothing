@@ -29,7 +29,7 @@ export class ItemService {
     return this.http.post(`${this.apiUrl}/api/storeItem`, Item, requestOptions);
   }
 
-  ////this makes a request to the endpoint to delete the item whenever the user click the remove button in every itme in the cart
+  //this makes a request to the endpoint to delete the item whenever the user click the remove button in every itme in the cart
   deleteItem(Item: IItem, token: string) {
     const headers: HttpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -39,6 +39,18 @@ export class ItemService {
     const requestOptions = {headers: headers, body: Item};
 
     return this.http.delete(`${this.apiUrl}/api/deleteItem`, requestOptions);
+  }
+
+  updateItemQuantity(Item: any, token: string) {
+    const headers: HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Access ${token}`
+    });
+
+    const requestOptions = {headers: headers};
+
+    return this.http.put(`${this.apiUrl}/api/updateItemQuantity`, Item, requestOptions);
+    
   }
 
   //this makes a request to obtaine the items of a user
