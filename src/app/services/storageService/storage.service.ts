@@ -43,6 +43,26 @@ export class StorageService {
     localStorage.setItem('items', JSON.stringify(items));
   }
 
+  //this updates a single item quantity by specifying the quantity and the item to be modified
+  updateItemQuantity(quantity: Number, item: IItem) {
+    let items = this.getItems();
+    
+    //make sure if the items variable is not null
+    if (!items) {
+      return;
+    }
+
+    //updating the item quantity
+    items = items?.map((i) => {
+      if(i.description === item.description) {
+        i.quantity = JSON.stringify(quantity)
+        return i;
+      }
+      return i;
+    });
+
+    this.storeItems(items);
+  }
 
   //remove items from local storage
   removeItems() {

@@ -3,6 +3,7 @@ import { IItem } from 'src/app/interfaces/Iitems';
 import { ItemService } from 'src/app/services/itemService/item.service';
 import { StorageService } from 'src/app/services/storageService/storage.service';
 import { faTrash, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-cart-item',
@@ -18,6 +19,7 @@ export class CartItemComponent implements OnInit {
   }
   token: (string| null) = this.storage.token;
   removeIcon: IconDefinition = faTrash;
+  quantity: FormControl = new FormControl();
 
   constructor(
     public Item: ItemService,
@@ -37,9 +39,20 @@ export class CartItemComponent implements OnInit {
       }
       this.storage.removeItem(item);
       this.storage.decreaseQuantity(Number(item.quantity));
-      
     });
+  }
 
+  changeQuantity() {
+    //setting the specification of 
+    if(
+      !this.quantity.value || this.quantity.value <= 0 || 
+      this.quantity.value >= 120 || this.quantity.value === this.item.quantity) {
+      this.quantity.setValue('');  
+      return;
+    }
+
+    this.storage.updateItemQuantity(this.quantity.value, this.item);
+    this.quantity.setValue('');
   }
 
 }

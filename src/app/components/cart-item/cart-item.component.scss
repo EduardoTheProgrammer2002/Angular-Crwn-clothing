@@ -30,12 +30,57 @@
             }
     
             .price-quantity {
-                .mult-simbol {
-                    color: rgb(158, 34, 34);
+                display: flex;
+                flex-direction: row;
+                
+                .price-container {
+                    position:relative;
+                    right: 25px;
+                    // background-color: red;
+                    padding-top: 2px;
+
+                    .price {
+                        color: rgb(10, 155, 10);
+                    }
                 }
-    
-                .price {
-                    color: rgb(10, 155, 10);
+                
+                .input-quantity {
+                    width: 80px;
+
+                    //disabling the input 
+                    input::-webkit-outer-spin-button,
+                    input::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+
+                    .inp-quantity {
+                        width: 50px;
+                        text-align: center;
+                        border-radius: 4px;
+                        border: 2px solid transparent;
+                        font-weight: bold;
+                        font-size: 17px;
+                        
+                        &:hover {
+                            border: 2px solid #91a7b8;
+                        }
+
+                        &::placeholder {
+                            color: black;
+                            font-weight: bold;
+                            font-size: 17px;
+                        }
+
+                        &:focus {
+                            outline: none;
+                            border-color: #a5bdcf;
+
+                            &::placeholder {
+                                color: transparent;
+                            }
+                        }
+                    }
                 }
             }
         }

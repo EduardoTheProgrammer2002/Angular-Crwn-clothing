@@ -5,8 +5,17 @@
         </div>
         <div class="item-info">
             <div class="price-quantity">
-                <span>
-                    {{item.quantity}} <span class="mult-simbol"></span>x <span class="price"> {{item.price}}$</span>
+                <div class="input-quantity">
+                    <input 
+                        [formControl]="quantity" 
+                        (blur)="changeQuantity()"
+                        [placeholder]="item.quantity" 
+                        class="inp-quantity"
+                        type="number"
+                    />
+                </div>
+                <span class="price-container">
+                    x <span class="price"> {{ item.price}}$</span>
                 </span>
             </div>
             <div class="description">
