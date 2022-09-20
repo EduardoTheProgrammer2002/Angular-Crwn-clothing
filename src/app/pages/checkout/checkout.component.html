@@ -1,1 +1,24 @@
-<p>checkout works!</p>
+<div class='checkout-container'>
+    <div class='checkout-header'>
+        <div class='header-block'>
+            <span>Product</span>
+        </div>
+        <div class='header-block'>
+            <span>Description</span>
+        </div>
+        <div class='header-block'>
+            <span>Quantity</span>
+        </div>
+        <div class='header-block'>
+            <span>Price</span>            
+        </div>
+        <div class='header-block'>
+            <span>Remove</span>
+        </div>
+    </div>
+    
+    <app-checkout-item *ngFor="let item of items" [item]="item" class="item"></app-checkout-item>
+
+    
+    <span class='total'>Total: $0</span>
+</div>

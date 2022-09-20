@@ -1,0 +1,9 @@
+<div class='checkout-item-container'>
+    <div class='image-container'>
+        <img [src]="item.imgurl" [alt]='item.description'/>
+    </div>
+    <span class='name'> {{item.description}} </span>
+    <span class='quantity'> {{item.quantity}} </span>
+    <span class='price'> ${{item.price}} </span>
+    <div class='remove-button'>&#10005;</div>
+</div>

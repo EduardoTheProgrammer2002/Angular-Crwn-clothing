@@ -19,6 +19,7 @@ import { ScrollToUpButtonComponent } from './scroll-to-up-button/scroll-to-up-bu
 import { AlertComponent } from './alert/alert.component';
 import { CartModalComponent } from './cart-modal/cart-modal.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
+import { CheckoutItemComponent } from './checkout-item/checkout-item.component';
 
 
 
@@ -39,7 +40,8 @@ import { CartItemComponent } from './cart-item/cart-item.component';
     ScrollToUpButtonComponent,
     AlertComponent,
     CartModalComponent,
-    CartItemComponent
+    CartItemComponent,
+    CheckoutItemComponent
   ],
   imports: [
     CommonModule,
@@ -60,7 +62,8 @@ import { CartItemComponent } from './cart-item/cart-item.component';
     TabComponent,
     InputComponent,
     ScrollToUpButtonComponent,
-    AlertComponent
+    AlertComponent,
+    CheckoutItemComponent
   ]
 })
 export class ComponentsModule { }
