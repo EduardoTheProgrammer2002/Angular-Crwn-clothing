@@ -14,6 +14,10 @@
             <span class="sHeader">Please Add Items!</span>
         </div>
     </div>
-    <app-button class="btn" [buttonType]="!showItems ? 'disabled':''" [disabled]="!showItems">Checkout</app-button>
+    <app-button 
+    class="btn" [buttonType]="!showItems ? 'disabled':''" 
+    [disabled]="!showItems"
+    (click)="redirect($event)"
+    >Checkout</app-button>
 </div>
 

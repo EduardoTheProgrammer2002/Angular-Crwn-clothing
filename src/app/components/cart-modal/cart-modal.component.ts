@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StorageService } from 'src/app/services/storageService/storage.service';
 import { faShoppingBag, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { CartService } from 'src/app/services/cartService/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart-modal',
@@ -15,7 +16,8 @@ export class CartModalComponent implements OnInit {
 
   constructor(
     private storage: StorageService,
-    private cart: CartService
+    private cart: CartService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -36,6 +38,12 @@ export class CartModalComponent implements OnInit {
       this.showItems = true;
       return;
     });
+  }
+
+  redirect(event: Event) {
+    event.preventDefault();
+    this.router.navigateByUrl('/checkout');
+    this.cart.updateShowProp(false);
   }
 
 }

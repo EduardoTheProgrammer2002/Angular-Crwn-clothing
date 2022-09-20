@@ -19,7 +19,6 @@ export class CheckoutItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.item);
   }
 
 }
