@@ -5,6 +5,10 @@
     <span class='name'> {{item.description}} </span>
     <span class='quantity'> {{item.quantity}} </span>
     <span class='price'> ${{item.price}} </span>
-    <fa-icon [icon]="trashbin" class='trash-icon'></fa-icon>
+    <fa-icon 
+    [icon]="trashbin" 
+    class='trash-icon'
+    (click)="removeItem(item)"
+    ></fa-icon>
     
 </div>
