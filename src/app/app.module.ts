@@ -10,7 +10,8 @@ import { ShopComponent } from './pages/shop/shop.component';
 import { ItemSectionComponent } from './pages/item-section/item-section.component';
 import { UserModule } from './user/user.module';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CheckoutComponent } from './pages/checkout/checkout.component'
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     AppComponent,
     HomeComponent,
     ShopComponent,
-    ItemSectionComponent
+    ItemSectionComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
