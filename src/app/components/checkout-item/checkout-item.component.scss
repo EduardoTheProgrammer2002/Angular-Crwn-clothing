@@ -50,8 +50,12 @@
       }
     }
   
-    .remove-button {
+    .trash-icon {
       margin-right: 35px;
+      color: #92A9BD;
+    //   background-color: red;
+      font-size: 26px;
+      margin-bottom: 4px;
       cursor: pointer;
     }
 }

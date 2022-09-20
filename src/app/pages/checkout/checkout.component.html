@@ -20,5 +20,5 @@
     <app-checkout-item *ngFor="let item of items" [item]="item" class="item"></app-checkout-item>
 
     
-    <span class='total'>Total: $0</span>
+    <span class='total'>Total: US<span class="total-money">${{storage.totalToPay}}</span></span>
 </div>

@@ -15,6 +15,7 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
     this.storage.items$.subscribe(items => {
       this.items = items
+      this.storage.setTotalToPay()
     });
   }
 

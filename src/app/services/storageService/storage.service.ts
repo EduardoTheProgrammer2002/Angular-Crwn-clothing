@@ -12,10 +12,28 @@ export class StorageService {
   user$: Subject<(null | IAuthUser)> = new BehaviorSubject<(null | IAuthUser)>(null);
   items$: Subject<(null | IItem[])> = new BehaviorSubject<(null | IItem[])>(this.getItems());
   itemsQuantity: number = 0;
+  totalToPay: number = this.getTotalToPay();
 
   constructor() { }
 
-  
+  setTotalToPay() {
+    this.totalToPay = this.getTotalToPay();
+  }
+
+  getTotalToPay() {
+    let total = 0;
+    this.items$.subscribe((items) => {
+      if(!items) {
+        return
+      } 
+
+      items.map((item) => {
+        total += Number(item.quantity)*Number(item.price);
+      })
+    })
+    return total
+  }
+
   //items quantity functionality
   setQuantity(quantity:number) {
     this.itemsQuantity = quantity;
