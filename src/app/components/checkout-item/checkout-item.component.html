@@ -1,14 +1,33 @@
 <div class='checkout-item-container'>
+    <!-- product img and description -->
     <div class='image-container'>
         <img [src]="item.imgurl" [alt]='item.description'/>
     </div>
     <span class='name'> {{item.description}} </span>
+
+    <!-- quantity structure -->
     <span class='quantity'>
-        <fa-icon [icon]="minus" (click)="operateOnItemQuantity('decrease', item)" class="minus-arrow arrow"></fa-icon>
-        {{item.quantity}} 
-        <fa-icon [icon]="plus" (click)="operateOnItemQuantity('increase', item)"  class="plus-arrow arrow"></fa-icon>
+        <button 
+        class="arrow" 
+        (click)="operateOnItemQuantity('decrease', item)"
+        [disabled]="item.quantity === '1'"
+        [ngClass]="item.quantity === '1' ? 'disabled': ''">
+            <fa-icon [icon]="minus"></fa-icon>
+        </button>
+        <span class="num-quantity">{{item.quantity}}</span> 
+        <button 
+        class="arrow" 
+        (click)="operateOnItemQuantity('increase', item)"
+        [disabled]="item.quantity === '80'"
+        [ngClass]="item.quantity === '80' ? 'disabled': ''">
+            <fa-icon [icon]="plus"></fa-icon>
+        </button>
     </span>
+
+    <!-- price structure -->
     <span class='price'> <span>$</span>{{item.price}} </span>
+
+    <!-- remove button -->
     <fa-icon 
     [icon]="trashbin" 
     class='trash-icon'

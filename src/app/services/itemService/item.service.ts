@@ -52,7 +52,7 @@ export class ItemService {
 
     const requestOptions = {headers: headers};
 
-    return this.http.put(`${this.apiUrl}/api/oparateOnItemQuantity`, item, requestOptions);
+    return this.http.put(`${this.apiUrl}/api/operateOnItemQuantity`, item, requestOptions);
   }
 
   updateItemQuantity(Item: any, token: string) {

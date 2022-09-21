@@ -42,21 +42,22 @@
     .quantity {
       padding-left: 18px;
       display: flex;
-      // background-color: red;
-  
+
+      
+      .num-quantity {
+        width: 50px;
+        padding-bottom: 2px;
+        text-align: center;
+      }
+      
       .arrow {
         cursor: pointer;
         font-size: 17px;
-        margin-top: 3px;
         color: #636363;
       }
-  
-      .minus-arrow{
-        padding-right: 14px;
-      }
 
-      .plus-arrow {
-        padding-left: 14px;
+      .disabled {
+        color: rgba($color: #636363, $alpha: 0.5);
       }
     }
   
