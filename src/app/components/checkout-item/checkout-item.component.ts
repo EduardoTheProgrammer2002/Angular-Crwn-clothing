@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IItem } from 'src/app/interfaces/Iitems';
-import { faTrash, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, IconDefinition, faGreaterThan, faLessThan } from '@fortawesome/free-solid-svg-icons';
 import { ItemService } from 'src/app/services/itemService/item.service';
 import { StorageService } from 'src/app/services/storageService/storage.service';
 
@@ -16,8 +16,12 @@ export class CheckoutItemComponent implements OnInit {
     quantity: '25',
     price: '120'
   }
-  trashbin: IconDefinition = faTrash;
   token: (string| null) = this.storage.token;
+
+  //icons
+  trashbin: IconDefinition = faTrash;
+  plus: IconDefinition = faGreaterThan;
+  minus: IconDefinition = faLessThan;
 
   constructor(
     private Item: ItemService,

@@ -26,34 +26,43 @@
     .price {
       width: 20%;
     }
-  
-    .quantity {
-        padding-left: 29px;
-    }
 
     .price {
         margin-right: 58px;
         padding-left: 27px;
-        color: rgb(4, 146, 4);
-        font-weight: bold;
+        // color: rgb(4, 146, 4);
+        // font-weight: bold;
+        
+        span {
+          font-weight: bold;
+          color: rgb(4, 146, 4);
+        }
     }
 
     .quantity {
+      padding-left: 18px;
       display: flex;
+      // background-color: red;
   
       .arrow {
         cursor: pointer;
+        font-size: 17px;
+        margin-top: 3px;
+        color: #636363;
       }
   
-      .value {
-        margin: 0 10px;
+      .minus-arrow{
+        padding-right: 14px;
+      }
+
+      .plus-arrow {
+        padding-left: 14px;
       }
     }
   
     .trash-icon {
       margin-right: 35px;
       color: #92A9BD;
-    //   background-color: red;
       font-size: 26px;
       margin-bottom: 4px;
       cursor: pointer;

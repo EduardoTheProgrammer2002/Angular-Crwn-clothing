@@ -3,8 +3,12 @@
         <img [src]="item.imgurl" [alt]='item.description'/>
     </div>
     <span class='name'> {{item.description}} </span>
-    <span class='quantity'> {{item.quantity}} </span>
-    <span class='price'> ${{item.price}} </span>
+    <span class='quantity'>
+        <fa-icon [icon]="minus" class="minus-arrow arrow"></fa-icon>
+        {{item.quantity}} 
+        <fa-icon [icon]="plus" class="plus-arrow arrow"></fa-icon>
+    </span>
+    <span class='price'> <span>$</span>{{item.price}} </span>
     <fa-icon 
     [icon]="trashbin" 
     class='trash-icon'
