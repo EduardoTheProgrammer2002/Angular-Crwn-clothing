@@ -93,6 +93,35 @@ export class StorageService {
     this.storeItems(items);
   }
 
+  //this Makes an operation on an item quantity, the operation could be an INCREASE(adding) or DECREASE(substraction) operation and
+  //Updates all the variables needed to update the frontend
+  OperateOnItemQuantity(operation: string, item: IItem) {
+    let items = this.getItems();
+
+    //make sure if the items variable is not null
+    if (!items) {
+      return;
+    }
+    
+    //updating the item quantity
+    items = items?.map((i) => {
+      if(i.description === item.description) {
+        i.quantity = JSON.stringify(Number(i.quantity) + (operation === 'increase' ? 1 : -1));
+        return i;
+      }
+      return i;
+    });
+    
+    //updating the total items quantity
+    if (operation === 'increase') {
+      this.increaseQuantity();
+    }
+    this.decreaseQuantity();
+
+    //storing the items
+    this.storeItems(items);
+  }
+
   //remove items from local storage
   removeItems() {
     this.items$.next(null);

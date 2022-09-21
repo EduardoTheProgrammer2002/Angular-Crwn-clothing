@@ -31,6 +31,27 @@ export class CheckoutItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /* make an operation on the quantity of the item in the database and in the localstorage(operation could be, Increase or decrease). */
+  operateOnItemQuantity(operation:string ,item: IItem) {
+    const newItem = {
+      operation: operation,
+      item: this.item
+    }
+
+    //update the item quantity in the database
+    this.Item.operateOnItemQuantity(newItem, this.token?? '').subscribe((res:any) => {
+      if(!res.ok) {
+        console.error(res.err);
+        
+        return;
+      }
+
+      //update the item quantity in the localstorage
+      this.storage.OperateOnItemQuantity(operation, this.item)
+      
+    });
+  }
+
   removeItem(item:IItem) {
     //removing the item
     return this.Item.deleteItem(item, this.token?? '').subscribe((res) => {

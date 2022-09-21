@@ -4,9 +4,9 @@
     </div>
     <span class='name'> {{item.description}} </span>
     <span class='quantity'>
-        <fa-icon [icon]="minus" class="minus-arrow arrow"></fa-icon>
+        <fa-icon [icon]="minus" (click)="operateOnItemQuantity('decrease', item)" class="minus-arrow arrow"></fa-icon>
         {{item.quantity}} 
-        <fa-icon [icon]="plus" class="plus-arrow arrow"></fa-icon>
+        <fa-icon [icon]="plus" (click)="operateOnItemQuantity('increase', item)"  class="plus-arrow arrow"></fa-icon>
     </span>
     <span class='price'> <span>$</span>{{item.price}} </span>
     <fa-icon 

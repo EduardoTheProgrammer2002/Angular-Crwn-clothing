@@ -18,7 +18,7 @@ export class ItemService {
 
 
   //this makes a request to the endpoint to store the items selected by the user
-  storeItem(Item: IITemToStore, token: string) {
+  storeItem(item: IITemToStore, token: string) {
     const headers: HttpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Access ${token}`
@@ -26,19 +26,33 @@ export class ItemService {
 
     const requestOptions = {headers: headers};
 
-    return this.http.post(`${this.apiUrl}/api/storeItem`, Item, requestOptions);
+    return this.http.post(`${this.apiUrl}/api/storeItem`, item, requestOptions);
   }
 
   //this makes a request to the endpoint to delete the item whenever the user click the remove button in every itme in the cart
-  deleteItem(Item: IItem, token: string) {
+  deleteItem(item: IItem, token: string) {
     const headers: HttpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Access ${token}`
     });
 
-    const requestOptions = {headers: headers, body: Item};
+    const requestOptions = {headers: headers, body: item};
 
     return this.http.delete(`${this.apiUrl}/api/deleteItem`, requestOptions);
+  }
+
+  /* This make a put request to make an operation on the item quantity, it could be an increase(adding) or decrease(substraction) operation
+  the operation type is specified in the Item passed as argument
+  */
+  operateOnItemQuantity(item: any, token: string) {
+    const headers: HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Access ${token}`
+    });
+
+    const requestOptions = {headers: headers};
+
+    return this.http.put(`${this.apiUrl}/api/oparateOnItemQuantity`, item, requestOptions);
   }
 
   updateItemQuantity(Item: any, token: string) {
