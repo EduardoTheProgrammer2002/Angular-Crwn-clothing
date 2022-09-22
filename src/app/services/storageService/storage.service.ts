@@ -115,8 +115,9 @@ export class StorageService {
     //updating the total items quantity
     if (operation === 'increase') {
       this.increaseQuantity();
+    } else {
+      this.decreaseQuantity();
     }
-    this.decreaseQuantity();
 
     //storing the items
     this.storeItems(items);
