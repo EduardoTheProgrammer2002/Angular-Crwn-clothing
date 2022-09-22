@@ -23,7 +23,8 @@ export class RegisterComponent {
   ]);
   email = new UntypedFormControl('', [
     Validators.required,
-    Validators.email
+    Validators.email,
+    Validators.pattern(/\b[a-z]+/g)
   ]);
   password = new UntypedFormControl('', [
     Validators.required,

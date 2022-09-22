@@ -3,7 +3,7 @@
     <label class="input-label">{{label}}</label>
 </div>
 <ng-container *ngIf="control.touched" class="mb-[15px]">
-    <p class="text-red-400 mt-[5px]" *ngIf="control.errors?.['pattern']">
+    <p class="text-red-400 mt-[5px]" *ngIf="control.errors?.['pattern'] && type === 'password'">
         Passwords must be at least 8 characters long, have 1
         uppercase letter, 1 lowercase letter, and 1 number.
     </p>
@@ -23,5 +23,8 @@
     </p>
     <p *ngIf="control.errors?.['noMatch']" class="text-red-400 mt-[5px]">
         Passwords do not match.
+    </p>
+    <p *ngIf="control.errors?.['pattern'] && type === 'text'" class="text-red-400 mt-[5px]">
+        Uppercase letters are not allowed.
     </p>
 </ng-container>
