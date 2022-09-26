@@ -45,11 +45,15 @@ export class SignoutComponent implements OnInit {
         
         this.storage.removeTokens();
         this.storage.removeItems();
-        this.storage.storeAuthState(false);
+        this.storeAuthState(false);
         this.storage.setUser(null);
         this.alert.updateMsg(response.msg);
         this.alert.successRequest();
         this.modal.setTimeToCloseModal(3000, 'signout');
     });
+  }
+
+  storeAuthState(doIt: boolean) {
+    this.storage.storeAuthState(doIt);
   }
 }

@@ -27,7 +27,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   openPaymentModal(id:string) {
-    this.modal.toggleModal(id);
+    this.modal.toggleModal(id); 
   }
 
 }

@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   constructor(
     public data: ShopService,
     private auth: AuthService,
-    private storage: StorageService,
+    public storage: StorageService,
     private item: ItemService,
     public cart: CartService
     ) {}

@@ -3,5 +3,5 @@
 <app-auth-modal></app-auth-modal>
 <app-cart-modal *ngIf="cart.show" id="cart-modal"></app-cart-modal>
 <app-signout-modal></app-signout-modal>
-<app-payments-modal></app-payments-modal>
+<app-payments-modal *ngIf="storage.authState$ | async"></app-payments-modal>
 <app-scroll-to-up-button></app-scroll-to-up-button>

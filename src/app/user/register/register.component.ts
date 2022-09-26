@@ -68,7 +68,7 @@ export class RegisterComponent {
       if (!this.response.ok) {
         this.alert.failedRequest();
         this.alert.updateMsg(this.response.error);
-        this.storage.storeAuthState(false);
+        this.storeAuthState(false)
         return;
       }
 
@@ -76,7 +76,7 @@ export class RegisterComponent {
       //get the token and store it, also store the authState
       const token = this.response.tokens; 
       this.storage.storeTokens(token);
-      this.storage.storeAuthState(true);
+      this.storeAuthState(true);
 
       //get the alert ready
       this.alert.successRequest();
@@ -86,6 +86,10 @@ export class RegisterComponent {
       this.clearForm();
       this.modal.setTimeToCloseModal(3100, 'auth');
     })
+  }
+
+  storeAuthState(doIt: boolean) {
+    this.storage.storeAuthState(doIt);
   }
 
   clearForm() {
