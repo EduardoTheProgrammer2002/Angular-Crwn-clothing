@@ -12,6 +12,7 @@ import { UserModule } from './user/user.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CheckoutComponent } from './pages/checkout/checkout.component'
+import { PaymentsModule } from './payments/payments.module';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component'
     ComponentsModule,
     FontAwesomeModule,
     UserModule,
+    PaymentsModule,
     HttpClientModule,
     BrowserAnimationsModule
   ],
