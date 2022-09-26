@@ -14,6 +14,9 @@ import { ComponentsModule } from '../components/components.module';
   imports: [
     CommonModule,
     ComponentsModule
+  ],
+  exports: [
+    PaymentsModalComponent
   ]
 })
 export class PaymentsModule { }

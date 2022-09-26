@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalService } from 'src/app/services/modal.service';
 import { StorageService } from 'src/app/services/storageService/storage.service';
 
 @Component({
@@ -11,7 +12,8 @@ export class CheckoutComponent implements OnInit {
   items:any;
   constructor(
     public storage: StorageService,
-    private router: Router
+    private router: Router,
+    private modal: ModalService
   ) { }
 
   ngOnInit(): void {
@@ -22,6 +24,10 @@ export class CheckoutComponent implements OnInit {
       }
       this.storage.setTotalToPay()
     });
+  }
+
+  openPaymentModal(id:string) {
+    this.modal.toggleModal(id);
   }
 
 }

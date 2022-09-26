@@ -18,7 +18,9 @@
     </div>
     
     <app-checkout-item *ngFor="let item of items" [item]="item" class="item"></app-checkout-item>
-
     
-    <span class='total'>Total: US<span class="total-money">${{storage.totalToPay}}</span></span>
+    <div class="payment">
+        <app-button buttonType="payment" (click)="openPaymentModal('payments')">Pay now</app-button>
+        <span class='total'>Total: US<span class="total-money">${{storage.totalToPay}}</span></span>
+    </div>
 </div>

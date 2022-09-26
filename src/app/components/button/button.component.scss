@@ -54,4 +54,17 @@
           border: none;
         }
     }
+
+    &.payment {
+        background-color: #2f4e63;
+        color: white;
+        border-radius: 2px;
+        width: 245px;
+
+        &:hover {
+            background-color: #4e6f8b;
+            border: none;
+        }
+
+    }
 }
