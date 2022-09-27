@@ -10,10 +10,15 @@ export class ModalService {
   constructor() { }
 
   register(id: string) {
-    this.modals.push({
-      id,
-      visible: false
-    });
+    const modal = this.modals.find((ele) => ele.id === id)
+    if(!modal) {
+      this.modals.push({
+        id,
+        visible: false
+      });
+      return
+    }
+    return 
   }
 
   unregister(id: string) {

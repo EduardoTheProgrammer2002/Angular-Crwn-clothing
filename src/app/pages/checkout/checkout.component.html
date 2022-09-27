@@ -23,4 +23,5 @@
         <app-button buttonType="payment" class="payment-btn" (click)="openPaymentModal('payments')">Pay now</app-button>
         <span class='total'>Total: US<span class="total-money">${{storage.totalToPay}}</span></span>
     </div>
+    <app-payments-modal *ngIf="storage.authState$ | async"></app-payments-modal>
 </div>
