@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
+import { ItemService } from 'src/app/services/itemService/item.service';
 import { StorageService } from 'src/app/services/storageService/storage.service';
 import { environment } from 'src/environments/environment';
 
@@ -9,12 +10,14 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./payments.component.scss'],
 })
 export class PaymentsComponent implements OnInit, OnDestroy {
-  totalToPay: number = 0;
+  token: (string| null) = this.storage.token;
 
   public payPalConfig?: IPayPalConfig;
 
-  constructor(private storage: StorageService) {
-  }
+  constructor(
+    private storage: StorageService,
+    private item: ItemService
+  ) {}
 
   ngOnInit(): void {
     this.initConfig();
@@ -49,17 +52,9 @@ export class PaymentsComponent implements OnInit, OnDestroy {
         label: 'paypal',
         layout: 'vertical',
       },
-      onApprove: (data, actions) => {
-        console.log(
-          'onApprove - transaction was approved, but not authorized',
-          data,
-          actions
-        );
+      onApprove: (data, actions) => {        
         actions.order.get().then((details: any) => {
-          console.log(
-            'onApprove - you can get full order details inside onApprove: ',
-            details
-          );
+          this.deleteAllitems();
         });
       },
       onClientAuthorization: (data) => {
@@ -82,5 +77,17 @@ export class PaymentsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     console.log('destro');
+  }
+
+  //this deletes all items for the current user logged in
+  deleteAllitems() {
+    this.item.deleteAllItems(this.token?? '').subscribe((res:any) => {
+      if (!res.ok) {
+        console.log(res.err)
+        return;
+      }
+
+      console.log(res.msg);
+    });
   }
 }
