@@ -4,6 +4,8 @@ import { PaymentsComponent } from './payments/payments.component';
 import { PaymentsModalComponent } from './payments-modal/payments-modal.component';
 import { ComponentsModule } from '../components/components.module';
 
+import { NgxPayPalModule } from 'ngx-paypal';
+
 
 
 @NgModule({
@@ -13,7 +15,8 @@ import { ComponentsModule } from '../components/components.module';
   ],
   imports: [
     CommonModule,
-    ComponentsModule
+    ComponentsModule,
+    NgxPayPalModule
   ],
   exports: [
     PaymentsModalComponent
