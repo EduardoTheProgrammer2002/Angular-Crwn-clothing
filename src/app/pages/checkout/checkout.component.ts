@@ -11,7 +11,7 @@ import { faShoppingBag, IconDefinition } from '@fortawesome/free-solid-svg-icons
 })
 export class CheckoutComponent implements OnInit {
   items:any;
-  showItems: boolean = false
+  showItems: boolean = false //this store the condition value, to know when to show the Empty view or the items.
 
   //empty icon
   emptyBag: IconDefinition = faShoppingBag;
@@ -38,7 +38,8 @@ export class CheckoutComponent implements OnInit {
     this.modal.toggleModal(id); 
   }
 
-  redirect() {
+  //this redirect the user to the shop section when clicking the add itmes in the empty view
+  redirect(url: string) {
     this.router.navigateByUrl('/shop');
   }
 
