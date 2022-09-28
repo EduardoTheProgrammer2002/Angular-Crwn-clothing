@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
 import { ItemService } from 'src/app/services/itemService/item.service';
 import { StorageService } from 'src/app/services/storageService/storage.service';
@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './payments.component.html',
   styleUrls: ['./payments.component.scss'],
 })
-export class PaymentsComponent implements OnInit, OnDestroy {
+export class PaymentsComponent implements OnInit {
   token: (string| null) = this.storage.token;
 
   public payPalConfig?: IPayPalConfig;
@@ -75,9 +75,7 @@ export class PaymentsComponent implements OnInit, OnDestroy {
     };
   }
 
-  ngOnDestroy(): void {
-    console.log('destro');
-  }
+
 
   //this deletes all items for the current user logged in
   deleteAllitems() {

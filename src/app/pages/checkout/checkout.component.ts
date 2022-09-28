@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalService } from 'src/app/services/modal.service';
 import { StorageService } from 'src/app/services/storageService/storage.service';
+import { faShoppingBag, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-checkout',
@@ -10,6 +11,11 @@ import { StorageService } from 'src/app/services/storageService/storage.service'
 })
 export class CheckoutComponent implements OnInit {
   items:any;
+  showItems: boolean = false
+
+  //empty icon
+  emptyBag: IconDefinition = faShoppingBag;
+
   constructor(
     public storage: StorageService,
     private router: Router,
@@ -19,15 +25,21 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
     this.storage.items$.subscribe(items => {
       this.items = items
+      this.showItems = true;
       if(!this.items || this.items.length < 1) {
-        this.router.navigateByUrl('/');
+        this.showItems = false
       }
+      console.log(this.showItems);
       this.storage.setTotalToPay()
     });
   }
 
   openPaymentModal(id:string) {
     this.modal.toggleModal(id); 
+  }
+
+  redirect() {
+    this.router.navigateByUrl('/shop');
   }
 
 }

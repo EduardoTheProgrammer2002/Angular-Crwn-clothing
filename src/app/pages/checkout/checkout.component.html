@@ -1,27 +1,45 @@
 <div class='checkout-container'>
-    <div class='checkout-header'>
-        <div class='header-block'>
-            <span>Product</span>
+    <ng-container *ngIf="showItems">
+        <div class='checkout-header'>
+            <div class='header-block'>
+                <span>Product</span>
+            </div>
+            <div class='header-block'>
+                <span>Description</span>
+            </div>
+            <div class='header-block'>
+                <span>Quantity</span>
+            </div>
+            <div class='header-block'>
+                <span>Price</span>            
+            </div>
+            <div class='header-block'>
+                <span>Remove</span>
+            </div>
         </div>
-        <div class='header-block'>
-            <span>Description</span>
+        
+        <app-checkout-item *ngFor="let item of items" [item]="item" class="item"></app-checkout-item>
+        
+        <div class="payment">
+            <app-button buttonType="payment" class="payment-btn" (click)="openPaymentModal('payments')">Pay now</app-button>
+            <span class='total'>Total: US<span class="total-money">${{storage.totalToPay}}</span></span>
         </div>
-        <div class='header-block'>
-            <span>Quantity</span>
+        <app-payments-modal *ngIf="storage.authState$ | async"></app-payments-modal>
+    </ng-container>
+
+    <ng-container *ngIf="!showItems">
+        <div class="empty-checkout">
+            <div class="icon-container">
+                <fa-icon [icon]="emptyBag" class="cart-plus"></fa-icon>
+                <span class="x-icon">x</span>
+            </div>
+            <div class="msg-container">
+                <h3 class="msg">
+                    Sorry! Your Checkout is empty. 
+                </h3>
+                <span class="sub-msg"> Please add Items on the shop section. </span> 
+            </div>
+            <app-button (click)="redirect()" buttonType="checkout">Add Items</app-button>
         </div>
-        <div class='header-block'>
-            <span>Price</span>            
-        </div>
-        <div class='header-block'>
-            <span>Remove</span>
-        </div>
-    </div>
-    
-    <app-checkout-item *ngFor="let item of items" [item]="item" class="item"></app-checkout-item>
-    
-    <div class="payment">
-        <app-button buttonType="payment" class="payment-btn" (click)="openPaymentModal('payments')">Pay now</app-button>
-        <span class='total'>Total: US<span class="total-money">${{storage.totalToPay}}</span></span>
-    </div>
-    <app-payments-modal *ngIf="storage.authState$ | async"></app-payments-modal>
+    </ng-container>
 </div>
