@@ -5,13 +5,15 @@ import { PaymentsModalComponent } from './payments-modal/payments-modal.componen
 import { ComponentsModule } from '../components/components.module';
 
 import { NgxPayPalModule } from 'ngx-paypal';
+import { PaymentAlertComponent } from './payment-alert/payment-alert.component';
 
 
 
 @NgModule({
   declarations: [
     PaymentsComponent,
-    PaymentsModalComponent
+    PaymentsModalComponent,
+    PaymentAlertComponent
   ],
   imports: [
     CommonModule,
