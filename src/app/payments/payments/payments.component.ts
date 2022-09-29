@@ -21,6 +21,7 @@ export class PaymentsComponent implements OnInit {
 
   ngOnInit(): void {
     this.initConfig();
+    console.log('init')
   }
 
   private initConfig(): void {

@@ -5,28 +5,31 @@ import { BehaviorSubject, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class PaymentAlertService {
-  show: Subject<boolean> = new BehaviorSubject<boolean>(false); //visibility property
-  reqState: Subject<boolean> = new BehaviorSubject<boolean>(true); //request state, false = failure, true = success
-  msg: Subject<string> = new BehaviorSubject<string>(''); //message to let the user know how the things went
+  show = false; //visibility property
+  state = true; //request state, false = failure, true = success
+  msg = 'Congratulations!'; //message to let the user know how the things went
+  headerMsg = 'Congratulations!';
 
   constructor() { }
 
   //req functionability
-  failedRequest(): void {
-    this.reqState.next(false);
+  failedPayment(): void {
+    this.state = false;
   }
 
-  successRequest(): void {
-    this.reqState.next(true);
+  successPayment(): void {
+    this.state = true;
   }
 
   //show or visibility functionability
-  updateShowProp(vis: boolean): void {
-    this.show.next(vis);
+  updateShowProp(show: boolean): void {
+    this.show = show;
   }
 
   //message functionability
-  updateMsg(str: string): void {
-    this.msg.next(str);
+  updateMsg(msg: string, header: string): void {
+    this.msg = msg;
+    this.headerMsg = header;
   }
+
 }

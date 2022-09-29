@@ -6,6 +6,9 @@ import { ComponentsModule } from '../components/components.module';
 
 import { NgxPayPalModule } from 'ngx-paypal';
 import { PaymentAlertComponent } from './payment-alert/payment-alert.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { UserModule } from '../user/user.module';
+import { AppModule } from '../app.module';
 
 
 
@@ -18,10 +21,12 @@ import { PaymentAlertComponent } from './payment-alert/payment-alert.component';
   imports: [
     CommonModule,
     ComponentsModule,
-    NgxPayPalModule
+    NgxPayPalModule,
+    FontAwesomeModule
   ],
   exports: [
-    PaymentsModalComponent
+    PaymentsModalComponent,
+    PaymentAlertComponent
   ]
 })
 export class PaymentsModule { }

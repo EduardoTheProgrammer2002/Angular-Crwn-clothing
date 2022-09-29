@@ -1,0 +1,57 @@
+.main-container {
+    width: 400px;
+    
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        .icon-container {
+            // background-color: rgb(31, 143, 31);
+            color: white;
+            position: relative;
+            bottom: 70px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 60px;
+            font-size: 50px;
+            border: 3px solid white;
+            width: 120px;
+            height: 120px;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            bottom: 40px;
+    
+            .header {
+                font-weight: bold;
+                font-size: 28px;
+                color: #4e626e;
+            }
+    
+            .msg {
+                font-size: 19px;
+            }
+        }
+    }
+
+    .success {
+        .icon-container {
+            background-color: rgb(31, 143, 31);
+        }
+    }
+
+    .failure {
+        .icon-container {
+            background-color: rgb(184, 42, 42);
+        }
+    }
+}
+
+
+

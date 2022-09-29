@@ -29,7 +29,6 @@ export class CheckoutComponent implements OnInit {
       if(!this.items || this.items.length < 1) {
         this.showItems = false
       }
-      console.log(this.showItems);
       this.storage.setTotalToPay()
     });
   }
