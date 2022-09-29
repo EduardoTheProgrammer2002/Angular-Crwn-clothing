@@ -8,6 +8,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SignoutModalComponent } from './signout-modal/signout-modal.component';
 import { SignoutComponent } from './signout/signout.component';
+import { PaymentsComponent } from './payments/payments/payments.component';
+import { PaymentsModalComponent } from './payments/payments-modal/payments-modal.component';
+import { PaymentsAlertComponent } from './payments/payments-alert/payments-alert.component';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 
 
@@ -18,17 +22,23 @@ import { SignoutComponent } from './signout/signout.component';
     LoginComponent,
     RegisterComponent,
     SignoutModalComponent,
-    SignoutComponent
+    SignoutComponent,
+    PaymentsComponent,
+    PaymentsModalComponent,
+    PaymentsAlertComponent
   ],
   imports: [
     CommonModule,
     ComponentsModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgxPayPalModule
   ],
   exports: [
     AuthModalComponent,
-    SignoutModalComponent
+    SignoutModalComponent,
+    PaymentsModalComponent,
+    PaymentsAlertComponent
   ]
 })
 export class UserModule { }

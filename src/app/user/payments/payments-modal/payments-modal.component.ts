@@ -6,7 +6,7 @@ import { ModalService } from 'src/app/services/modal.service';
   templateUrl: './payments-modal.component.html',
   styleUrls: ['./payments-modal.component.scss']
 })
-export class PaymentsModalComponent implements OnInit, OnDestroy {
+export class PaymentsModalComponent implements OnInit {
 
   constructor(
     private modal: ModalService

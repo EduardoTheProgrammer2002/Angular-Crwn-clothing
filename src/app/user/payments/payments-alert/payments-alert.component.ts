@@ -3,10 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { faCheck, faXmark, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { PaymentAlertService } from 'src/app/services/payment-alert/payment-alert.service';
 
+
 @Component({
-  selector: 'app-payment-alert',
-  templateUrl: './payment-alert.component.html',
-  styleUrls: ['./payment-alert.component.scss'],
+  selector: 'app-payments-alert',
+  templateUrl: './payments-alert.component.html',
+  styleUrls: ['./payments-alert.component.scss'],
   animations: [
     trigger('popAlert', [
       state('show', style({
@@ -16,15 +17,15 @@ import { PaymentAlertService } from 'src/app/services/payment-alert/payment-aler
 
       state('hide', style({
         opacity: 0,
-        transform: "translate(0%, -100%)"
+        transform: "translate(0%, -100%) scale(0.2)"
       })),
-      transition("show => hide", animate('200ms ease-in-out')),
+      transition("show => hide", animate('350ms ease-in-out')),
       transition('hide => show', animate('1000ms ease-out')),
     ])
   ]
 })
-export class PaymentAlertComponent implements OnInit {
-  
+export class PaymentsAlertComponent implements OnInit {
+
   check: IconDefinition = this.alert.state ? faCheck: faXmark;
 
   constructor(

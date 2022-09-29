@@ -7,9 +7,10 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-payments',
   templateUrl: './payments.component.html',
-  styleUrls: ['./payments.component.scss'],
+  styleUrls: ['./payments.component.scss']
 })
 export class PaymentsComponent implements OnInit {
+
   token: (string| null) = this.storage.token;
 
   public payPalConfig?: IPayPalConfig;
