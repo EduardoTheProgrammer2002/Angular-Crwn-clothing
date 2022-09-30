@@ -27,7 +27,7 @@ export class PaymentAlertService {
   }
 
   //message functionability
-  updateMsg(msg: string, header: string): void {
+  updateContent(msg: string, header: string): void {
     this.msg = msg;
     this.headerMsg = header;
   }

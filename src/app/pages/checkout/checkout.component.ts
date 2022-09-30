@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ModalService } from 'src/app/services/modal.service';
 import { StorageService } from 'src/app/services/storageService/storage.service';
 import { faShoppingBag, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { PaymentAlertService } from 'src/app/services/payment-alert/payment-alert.service';
 
 @Component({
   selector: 'app-checkout',

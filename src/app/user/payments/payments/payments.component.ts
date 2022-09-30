@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
 import { ItemService } from 'src/app/services/itemService/item.service';
+import { ModalService } from 'src/app/services/modal.service';
+import { PaymentAlertService } from 'src/app/services/payment-alert/payment-alert.service';
 import { StorageService } from 'src/app/services/storageService/storage.service';
 import { environment } from 'src/environments/environment';
 
@@ -17,12 +19,13 @@ export class PaymentsComponent implements OnInit {
 
   constructor(
     private storage: StorageService,
-    private item: ItemService
+    private item: ItemService,
+    private paymentAlert: PaymentAlertService,
+    private modal: ModalService
   ) {}
 
   ngOnInit(): void {
     this.initConfig();
-    console.log('init')
   }
 
   private initConfig(): void {
@@ -56,6 +59,7 @@ export class PaymentsComponent implements OnInit {
       },
       onApprove: (data, actions) => {        
         actions.order.get().then((details: any) => {
+          this.modal.changeModalState('payments', false);
           this.deleteAllitems();
         });
       },
@@ -70,6 +74,7 @@ export class PaymentsComponent implements OnInit {
       },
       onError: (err) => {
         console.log('OnError', err);
+        this.OpenPaymentAlert("Wow, somenting went wrong", "Your payment could not be made.", false);
       },
       onClick: (data, actions) => {
         console.log('onClick', data, actions);
@@ -87,7 +92,22 @@ export class PaymentsComponent implements OnInit {
         return;
       }
 
+      this.OpenPaymentAlert("Congratulations!", "Your payment has been made", true);
       console.log(res.msg);
     });
+  }
+
+  //Open payment alert
+  OpenPaymentAlert(header: string, msg: string, state: boolean) {
+    this.paymentAlert.updateShowProp(true);
+    this.paymentAlert.updateContent(msg, header);
+
+    if(!state) {
+      this.paymentAlert.failedPayment()
+      return;
+    }
+
+    this.paymentAlert.successPayment();
+    return
   }
 }

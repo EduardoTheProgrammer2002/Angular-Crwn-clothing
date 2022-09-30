@@ -1,6 +1,7 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { faCheck, faXmark, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { ModalService } from 'src/app/services/modal.service';
 import { PaymentAlertService } from 'src/app/services/payment-alert/payment-alert.service';
 
 
@@ -17,10 +18,10 @@ import { PaymentAlertService } from 'src/app/services/payment-alert/payment-aler
 
       state('hide', style({
         opacity: 0,
-        transform: "translate(0%, -100%) scale(0.2)"
+        transform: "scale(0.002)"
       })),
-      transition("show => hide", animate('350ms ease-in-out')),
-      transition('hide => show', animate('1000ms ease-out')),
+      transition("show => hide", animate('300ms ease-in-out')),
+      transition('hide => show', animate('0ms ease-out')),
     ])
   ]
 })
@@ -29,7 +30,8 @@ export class PaymentsAlertComponent implements OnInit {
   check: IconDefinition = this.alert.state ? faCheck: faXmark;
 
   constructor(
-    public alert: PaymentAlertService
+    public alert: PaymentAlertService,
+    private modal: ModalService
   ) { }
 
   ngOnInit(): void {
@@ -37,6 +39,12 @@ export class PaymentsAlertComponent implements OnInit {
 
   closePaymentAlert() {
     this.alert.updateShowProp(false);
+
+    if(this.alert.state) {
+      this.modal.changeModalState('payments', false);
+      return
+    }
+    return
   }
 
   get alertState() {

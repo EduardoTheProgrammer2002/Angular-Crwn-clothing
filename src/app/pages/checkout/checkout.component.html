@@ -25,6 +25,7 @@
             <span class='total'>Total: US<span class="total-money">${{storage.totalToPay}}</span></span>
         </div>
         <app-payments-modal *ngIf="storage.authState$ | async"></app-payments-modal>
+        <app-payments-alert></app-payments-alert>
     </ng-container>
 
     <ng-container *ngIf="!showItems">
@@ -42,5 +43,4 @@
             <app-button (click)="redirect('/')" buttonType="checkout">Add Items</app-button>
         </div>
     </ng-container>
-    <app-payments-alert></app-payments-alert>
 </div>
