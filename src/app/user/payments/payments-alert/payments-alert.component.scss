@@ -1,6 +1,14 @@
+.parent-container {
+    transform: scale(0.0003);
+    transition: transform 0ms ease-in-out;
+}
+
+.parent-container-animation {
+    transform: scale(1);
+}
+
 .main-container {
     width: 400px;
-    
 
     .container {
         display: flex;
@@ -35,7 +43,9 @@
             }
     
             .msg {
-                font-size: 19px;
+                color:rgb(114, 114, 114);
+                font-size: 17px;
+                font-weight: bold;
             }
         }
     }

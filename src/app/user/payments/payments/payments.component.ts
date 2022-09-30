@@ -74,7 +74,7 @@ export class PaymentsComponent implements OnInit {
       },
       onError: (err) => {
         console.log('OnError', err);
-        this.OpenPaymentAlert("Wow, somenting went wrong", "Your payment could not be made.", false);
+        this.OpenPaymentAlert("Wow, Sorry!", "Your payment could not be made.", false);
       },
       onClick: (data, actions) => {
         console.log('onClick', data, actions);
@@ -91,8 +91,8 @@ export class PaymentsComponent implements OnInit {
         console.log(res.err)
         return;
       }
-
-      this.OpenPaymentAlert("Congratulations!", "Your payment has been made", true);
+      this.OpenPaymentAlert("Congratulations!", "Your payment has been made.", true);
+      this.storage.removeItems()
       console.log(res.msg);
     });
   }

@@ -4,6 +4,7 @@ import { ModalService } from 'src/app/services/modal.service';
 import { StorageService } from 'src/app/services/storageService/storage.service';
 import { faShoppingBag, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { PaymentAlertService } from 'src/app/services/payment-alert/payment-alert.service';
+import { AlertService } from 'src/app/services/alertService/alert.service';
 
 @Component({
   selector: 'app-checkout',
@@ -20,7 +21,8 @@ export class CheckoutComponent implements OnInit {
   constructor(
     public storage: StorageService,
     private router: Router,
-    private modal: ModalService
+    private modal: ModalService,
+    private alert: PaymentAlertService
   ) { }
 
   ngOnInit(): void {
@@ -36,6 +38,7 @@ export class CheckoutComponent implements OnInit {
 
   openPaymentModal(id:string) {
     this.modal.toggleModal(id); 
+    // this.alert.updateShowProp(true)
   }
 
   //this redirect the user to the shop section when clicking the add itmes in the empty view

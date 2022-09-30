@@ -18,10 +18,10 @@ import { PaymentAlertService } from 'src/app/services/payment-alert/payment-aler
 
       state('hide', style({
         opacity: 0,
-        transform: "scale(0.002)"
+        transform: "scale(0.003)"
       })),
       transition("show => hide", animate('300ms ease-in-out')),
-      transition('hide => show', animate('0ms ease-out')),
+      transition('hide => show', animate('300ms ease-out')),
     ])
   ]
 })
