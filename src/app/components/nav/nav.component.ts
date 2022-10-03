@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cartService/cart.service';
 import { ModalService } from 'src/app/services/modal.service';
 import { StorageService } from 'src/app/services/storageService/storage.service';
+import { AuthUserModalService } from 'src/app/services/user-modal/auth-user-modal.service';
 
 @Component({
   selector: 'app-nav',
@@ -13,7 +14,8 @@ export class NavComponent implements OnInit {
   constructor(
     private modal: ModalService,
     public storage: StorageService,
-    private cart: CartService
+    private cart: CartService,
+    public authModal: AuthUserModalService
   ) { }
 
   ngOnInit(): void {
@@ -31,5 +33,18 @@ export class NavComponent implements OnInit {
   openCartModal(event: Event) {
     event.preventDefault();
     this.cart.toggleModal();
+
+    if(this.authModal.show) {
+      this.authModal.updateShowProp(false);
+    }
+  }
+
+  openAuthUserModal(event: Event) {
+    event.preventDefault();
+    this.authModal.toggleModal();
+
+    if(this.cart.show) {
+      this.cart.updateShowProp(false);
+    }
   }
 }

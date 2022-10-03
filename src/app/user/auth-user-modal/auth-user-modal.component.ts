@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faUserTie, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { ModalService } from 'src/app/services/modal.service';
+import { AuthUserModalService } from 'src/app/services/user-modal/auth-user-modal.service';
 
 
 @Component({
@@ -13,9 +15,21 @@ export class AuthUserModalComponent implements OnInit {
   user: IconDefinition = faUserTie;
   
 
-  constructor() { }
+  constructor(
+    private modal: ModalService,
+    public authModal: AuthUserModalService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  openModal(event: Event, id: string) {
+    event.preventDefault();
+    this.modal.toggleModal(id);
+  }
+
+  closeAuthModal() {
+    this.authModal.toggleModal();
   }
 
 }

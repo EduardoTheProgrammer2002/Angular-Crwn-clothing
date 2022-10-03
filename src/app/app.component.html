@@ -2,6 +2,6 @@
 <router-outlet></router-outlet>
 <app-auth-modal></app-auth-modal>
 <app-cart-modal *ngIf="cart.show" id="cart-modal"></app-cart-modal>
-<app-auth-user-modal id="auth-modal" ></app-auth-user-modal>
+<app-auth-user-modal *ngIf="authModal.show" id="auth-modal" ></app-auth-user-modal>
 <app-signout-modal></app-signout-modal>
 <app-scroll-to-up-button></app-scroll-to-up-button>

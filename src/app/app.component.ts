@@ -5,6 +5,7 @@ import { CartService } from './services/cartService/cart.service';
 import { ItemService } from './services/itemService/item.service';
 import { ShopService } from './services/shop.service';
 import { StorageService } from './services/storageService/storage.service';
+import { AuthUserModalService } from './services/user-modal/auth-user-modal.service';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,8 @@ export class AppComponent implements OnInit {
     private auth: AuthService,
     public storage: StorageService,
     private item: ItemService,
-    public cart: CartService
+    public cart: CartService,
+    public authModal: AuthUserModalService
     ) {}
 
   refreshToken: (string | null) = this.storage.getToken('refreshToken');
