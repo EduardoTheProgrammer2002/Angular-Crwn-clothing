@@ -12,6 +12,7 @@ import { PaymentsComponent } from './payments/payments/payments.component';
 import { PaymentsModalComponent } from './payments/payments-modal/payments-modal.component';
 import { PaymentsAlertComponent } from './payments/payments-alert/payments-alert.component';
 import { NgxPayPalModule } from 'ngx-paypal';
+import { AuthUserModalComponent } from './auth-user-modal/auth-user-modal.component';
 
 
 
@@ -25,7 +26,8 @@ import { NgxPayPalModule } from 'ngx-paypal';
     SignoutComponent,
     PaymentsComponent,
     PaymentsModalComponent,
-    PaymentsAlertComponent
+    PaymentsAlertComponent,
+    AuthUserModalComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +40,8 @@ import { NgxPayPalModule } from 'ngx-paypal';
     AuthModalComponent,
     SignoutModalComponent,
     PaymentsModalComponent,
-    PaymentsAlertComponent
+    PaymentsAlertComponent,
+    AuthUserModalComponent
   ]
 })
 export class UserModule { }
