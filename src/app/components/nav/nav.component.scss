@@ -25,8 +25,25 @@
       
   
       .nav-link {
+        margin-left: 13px;
         padding: 10px 15px;
         cursor: pointer;
+      }
+    }
+    .user-icon-container {
+      display: flex;
+      color: #4a7b9c;
+      border: 2px solid #92A9BD;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 20px;
+
+      &:hover {
+        color: #6a9dbf;
+        border: 2px solid #a2bbd1;
       }
     }
 }

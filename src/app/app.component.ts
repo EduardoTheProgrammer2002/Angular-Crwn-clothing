@@ -58,11 +58,13 @@ export class AppComponent implements OnInit {
         return;
       }
 
+      
       //storing the refreshed tokens
       const tokens:IToken = response.tokens;
       this.storage.storeTokens(tokens);
       this.storage.authState$.next(true);
       this.setItems(tokens.accessToken)
+      this.storage.setUser(response.user);
     });
   }
 

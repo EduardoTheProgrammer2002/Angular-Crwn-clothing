@@ -3,6 +3,7 @@ import { CartService } from 'src/app/services/cartService/cart.service';
 import { ModalService } from 'src/app/services/modal.service';
 import { StorageService } from 'src/app/services/storageService/storage.service';
 import { AuthUserModalService } from 'src/app/services/user-modal/auth-user-modal.service';
+import { faUser, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-nav',
@@ -11,6 +12,8 @@ import { AuthUserModalService } from 'src/app/services/user-modal/auth-user-moda
 })
 export class NavComponent implements OnInit {
   authState: boolean = false;
+  user: IconDefinition = faUser;
+
   constructor(
     private modal: ModalService,
     public storage: StorageService,

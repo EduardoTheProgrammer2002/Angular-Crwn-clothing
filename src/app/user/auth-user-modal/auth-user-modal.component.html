@@ -2,13 +2,13 @@
 <div class="Auth-user-container">
     <div class="icon-container">
         <div class="icon">
-            <fa-icon [icon]="user"></fa-icon>
+            <fa-icon [icon]="userIcon"></fa-icon>
         </div>
     </div>
 
     <div class="user-info">
-        <h1 class="name">Eduardo Rodriguez</h1>
-        <span class="email">edwardo@gmail.com</span>
+        <h1 class="name">{{storage.user?.name}}</h1>
+        <span class="email">{{storage.user?.email}}</span>
     </div>
     <app-button buttonType="sign-out" class="sign-out" (click)="openModal($event, 'signout')">Sign out</app-button>
 </div>

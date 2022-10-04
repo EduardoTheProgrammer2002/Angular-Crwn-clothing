@@ -9,7 +9,7 @@ import { IItem } from 'src/app/interfaces/Iitems';
 export class StorageService {
   token = this.getToken('accessToken');
   authState$: Subject<boolean> = new BehaviorSubject<boolean>(this.getAuthState());
-  user$: Subject<(null | IAuthUser)> = new BehaviorSubject<(null | IAuthUser)>(null);
+  user: (null | IAuthUser) = null;
   items$: Subject<(null | IItem[])> = new BehaviorSubject<(null | IItem[])>(this.getItems());
   itemsQuantity: number = 0;
   totalToPay: number = this.getTotalToPay();
@@ -193,7 +193,7 @@ export class StorageService {
 
   //this set the user variable
   setUser(user: (IAuthUser | null)) {
-    this.user$.next(user);
+    this.user = user;
   }
 
   //functionability to store, remove, get the tokens from local storage and update the local variable

@@ -13,10 +13,13 @@
         <a (click)="openModal($event, 'auth')"  *ngIf="!authState" routerLinkActive="mb-[5px] active border-b-2 border-gray-500 font-bold" class="nav-link">
             SIGN IN
         </a>
+        <div (click)="openAuthUserModal($event)" *ngIf="authState"  class="user-icon-container nav nav-link">
+            <fa-icon [icon]="user"></fa-icon>
+        </div>
 
-        <a (click)="openAuthUserModal($event)" *ngIf="authState" routerLinkActive="mb-[5px] active border-b-2 border-gray-500 font-bold" class="nav-link">
+        <!-- <a (click)="openAuthUserModal($event)" *ngIf="authState" routerLinkActive="mb-[5px] active border-b-2 border-gray-500 font-bold" class="nav-link">
             SIGN OUT
-        </a>
+        </a> -->
 
 
         <div class="nav-link" (click)="openCartModal($event)">
