@@ -77,6 +77,17 @@ export class LoginComponent {
       this.storeAuthState(true);
       this.item.setLocalItems(tokens.accessToken);
 
+      //getting the current user info
+      this.auth.getAuthUser(tokens.accessToken).subscribe((user:any) => {
+        if(user.err) {
+          console.error(user.err);
+          return
+        }
+        this.storage.setUser(user.user);
+        
+        return
+      })
+
       //clear the form
       this.clearForm();
       this.modal.setTimeToCloseModal(3100, 'auth');

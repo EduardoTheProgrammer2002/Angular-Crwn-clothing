@@ -74,13 +74,25 @@ export class RegisterComponent {
 
       //The user is ready to be signed up
       //get the token and store it, also store the authState
-      const token = this.response.tokens; 
-      this.storage.storeTokens(token);
+      const tokens = this.response.tokens; 
+      this.storage.storeTokens(tokens);
       this.storeAuthState(true);
 
       //get the alert ready
       this.alert.successRequest();
       this.alert.updateMsg(this.response.msg);
+
+      //getting the current user info
+      this.auth.getAuthUser(tokens.accessToken).subscribe((user:any) => {
+        if(user.err) {
+          console.error(user.err)
+          return
+        }
+        console.log(user.user);
+        this.storage.setUser(user.user);
+        
+        return
+      })
       
       //clear form and close modal
       this.clearForm();
