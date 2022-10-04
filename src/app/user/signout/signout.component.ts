@@ -6,6 +6,8 @@ import { AlertService } from 'src/app/services/alertService/alert.service';
 import { AuthService } from 'src/app/services/authServices/auth.service';
 import { ModalService } from 'src/app/services/modal.service';
 import { StorageService } from 'src/app/services/storageService/storage.service';
+import { AuthUserModalService } from 'src/app/services/user-modal/auth-user-modal.service';
+import { AuthUserModalComponent } from '../auth-user-modal/auth-user-modal.component';
 
 @Component({
   selector: 'app-signout',
@@ -21,7 +23,8 @@ export class SignoutComponent implements OnInit {
     private modal: ModalService,
     private auth: AuthService,
     private storage: StorageService,
-    private alert: AlertService
+    private alert: AlertService,
+    private authModal: AuthUserModalService
   ) { }
 
   ngOnInit(): void {
@@ -49,6 +52,7 @@ export class SignoutComponent implements OnInit {
         this.storage.setUser(null);
         this.alert.updateMsg(response.msg);
         this.alert.successRequest();
+        this.authModal.updateShowProp(false);
         this.modal.setTimeToCloseModal(3000, 'signout');
     });
   }
