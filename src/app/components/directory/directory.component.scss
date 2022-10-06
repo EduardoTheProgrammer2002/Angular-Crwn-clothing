@@ -1,9 +1,31 @@
+// for screens from 0px to 768px
 .directory-menu {
-    padding: 40px 70px;
+    padding: 40px 0px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
+// for screens from 768px to 1300px
+@media only screen and (min-width: 768px) {
+    .directory-menu {
+        padding: 40px 20px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }   
+}
+
+//for screens greater than 1300px
+@media only screen and (min-width: 1300px) {
+    .directory-menu {
+        padding: 40px 70px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }   
+}
 

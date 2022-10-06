@@ -1,6 +1,7 @@
+// for screens from 0px to 500px
 .menu-item {
-    min-width: 30%;
-    height: 360px;
+    min-width: 80%;
+    height: 200px;
     flex: 1 1 auto;
     display: flex;
     align-items: center;
@@ -12,16 +13,7 @@
     overflow: hidden;
 
     &.large {
-        height: 500px;
-    }
-
-    &:first-child {
-        margin-right: 7.5px;
-    }
-
-    &:last-child {
-        margin-left: 7.5px;
-        margin-right: none;
+        height: 200px;
     }
 
     &:hover {
@@ -44,8 +36,8 @@
     }
 
     .content {
-        height: 90px;
-        padding: 0 25px;
+        height: 70px;
+        padding: 0 15px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -59,13 +51,97 @@
         .title {
             font-weight: bold;
             margin-bottom: 6px;
-            font-size: 22px;
+            font-size: 18px;
             color: #000000;
         }
         
         .subtitle {
             font-weight: lighter;
-            font-size: 16px;
+            font-size: 14px;
+        }
+    }
+}
+
+// for screens from 500px to 768px
+@media only screen and (min-width: 500px) {
+    .menu-item {
+        height: 300px;
+    
+        &.large {
+            height: 300px;
+        }
+    
+        .content {
+            height: 90px;
+    
+            .title {
+                font-size: 22px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+// for screens from 768px to 1300px
+@media only screen and (min-width: 768px) {
+    .menu-item {
+        min-width: 35%;
+        height: 330px;
+    
+        &.large {
+            height: 330px;
+        }
+    
+        .content {
+            height: 90px;
+            padding: 0 25px;
+    
+            .title {
+                font-size: 22px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+
+
+//screens equal of greater than 1300px
+@media only screen and (min-width: 1300px) {
+    .menu-item {
+        min-width: 30%;
+        height: 360px;
+    
+        &.large {
+            height: 500px;
+        }
+    
+        &:first-child {
+            margin-right: 7.5px;
+        }
+    
+        &:last-child {
+            margin-left: 7.5px;
+            margin-right: none;
+        }
+    
+        .content {
+            height: 90px;
+            padding: 0 25px;
+    
+            .title {
+                font-size: 22px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+            }
         }
     }
 }
