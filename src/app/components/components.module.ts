@@ -20,6 +20,7 @@ import { AlertComponent } from './alert/alert.component';
 import { CartModalComponent } from './cart-modal/cart-modal.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { CheckoutItemComponent } from './checkout-item/checkout-item.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -41,7 +42,8 @@ import { CheckoutItemComponent } from './checkout-item/checkout-item.component';
     AlertComponent,
     CartModalComponent,
     CartItemComponent,
-    CheckoutItemComponent
+    CheckoutItemComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -63,7 +65,8 @@ import { CheckoutItemComponent } from './checkout-item/checkout-item.component';
     InputComponent,
     ScrollToUpButtonComponent,
     AlertComponent,
-    CheckoutItemComponent
+    CheckoutItemComponent,
+    FooterComponent
   ]
 })
 export class ComponentsModule { }
