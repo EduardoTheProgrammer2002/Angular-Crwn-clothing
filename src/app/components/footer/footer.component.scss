@@ -2,7 +2,7 @@
     background: linear-gradient(0deg, #7C99AC 30%, rgb(245, 245, 245));
     margin: 0;
     // position: inherit;
-    height: 260px;
+    height: 180px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,7 +10,7 @@
 
     .social-media {
         margin-top: 50px;
-        font-size: 40px;
+        font-size: 35px;
 
         .icon {
             color: #4b748f;
@@ -35,6 +35,34 @@
     }
     .enviromment {
         color: #4a4949;
+        margin-bottom: 20px;
     }
     
+}
+
+@media only screen and (min-width: 768px) {
+    .footer-container {
+        height: 260px;
+    
+        .social-media {
+            font-size: 40px;
+        }
+
+        .creator-name {
+            font-weight: 100;
+            
+        }
+        
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+    .footer-container {
+        height: 260px;
+    
+        .social-media {
+            font-size: 40px;
+        }
+        
+    }
 }
