@@ -1,14 +1,15 @@
 .footer-container {
     background: linear-gradient(0deg, #7C99AC 30%, rgb(245, 245, 245));
     margin: 0;
-    height: 100%;
+    // position: inherit;
+    height: 260px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     .social-media {
-        // margin-top: 50px;
+        margin-top: 50px;
         font-size: 40px;
 
         .icon {

@@ -1,6 +1,6 @@
 // for screens from 0px to 768px
 .directory-menu {
-    padding: 40px 0px;
+    padding: 40px 13px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -21,7 +21,7 @@
 //for screens greater than 1300px
 @media only screen and (min-width: 1300px) {
     .directory-menu {
-        padding: 40px 70px;
+        padding: 40px 100px;
         width: 100%;
         display: flex;
         flex-wrap: wrap;
